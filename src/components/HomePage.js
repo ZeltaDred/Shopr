@@ -2,7 +2,7 @@
 
 var React = require('react');
 var storeApi = require('../mockApi/storeApi');
-var StoresList = require('./StoresList');
+var ShoppingList = require('./ShoppingList');
 
 var Stores = React.createClass({
 	getInitialState: function () {
@@ -21,7 +21,7 @@ var Stores = React.createClass({
 		
 		return(
 			<div>
-					<StoresList stores={this.state.stores}/>
+					<ShoppingList stores={this.state.stores}/>
 			</div>
 		);
 	}

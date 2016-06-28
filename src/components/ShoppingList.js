@@ -2,10 +2,9 @@
 
 var React = require('react');
 
-var SectionsList = React.createClass({
-	render: function () {
+var ShoppingList = React.createClass({
+	render: function() {
 		var stores = this.props.stores;
-		var store_id = this.props.id;
 
 		var listItems = function(item) {
 			return (
@@ -24,12 +23,23 @@ var SectionsList = React.createClass({
 			);
 		};
 
+
+		var listStores = function(store) {
+			return (
+				<div key = {store.id}>
+					<h4>{store.storeName}</h4>
+					<ul>{store.sections.map(listSections, this)}</ul>
+				</div>
+			);
+		};
+
 		return (
-			<ul>
-				{stores[store_id].sections.map(listSections, this)}
-			</ul>
+			<div>
+				{stores.map(listStores, this)}
+			</div>
 		);
+		
 	}
 });
 
-module.exports = SectionsList;
+module.exports = ShoppingList;
