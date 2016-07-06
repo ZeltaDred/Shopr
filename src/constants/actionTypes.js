@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-	CREATE_TODO: 'create todo',
-	UPDATE_TODO: 'update todo',
-	DELETE_TODO: 'delete todo',
+	CREATE_STORE: 'create store',
+	UPDATE_STORE: 'update store',
+	DELETE_STORE: 'delete store',
 };

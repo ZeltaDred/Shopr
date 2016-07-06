@@ -1,16 +1,16 @@
 {
-  "name": "app_without_server",
+  "name": "shopr app_without_server",
   "version": "1.0.0",
-  "description": "basic todo app with dev server",
+  "description": "shopping list app with dev server",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "tgfbikes"
+    "url": ""
   },
-  "author": "Stephen King",
+  "author": "Matt Evans",
   "license": "ISC",
   "dependencies": {
     "babelify": "^7.3.0",

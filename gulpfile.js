@@ -23,6 +23,9 @@ var config = {
 			'node_modules/bootstrap/dist/bootstrap-theme.min.css',
 			'node_modules/toastr/build/toastr.css',
 		],
+		fonts: [
+			'node_modules/bootstrap/dist/fonts/glyphicons-halflings-*',
+		],
 		dist: './dist'
 	}
 };
@@ -57,6 +60,11 @@ gulp.task('css', function() {
 		.pipe(connect.reload());
 });
 
+gulp.task('fonts', function() {
+	gulp.src(config.paths.fonts)
+		.pipe(gulp.dest(config.paths.dist + '/fonts'));
+});
+
 gulp.task('images', function() {
 	gulp.src(config.paths.images)
 		.pipe(gulp.dest(config.paths.dist + '/images'))
@@ -79,4 +87,4 @@ gulp.task('watch', function() {
 });
 
 //gulp.task('default', ['html', 'css', 'js', 'images', 'open', 'watch']);
-gulp.task('default', ['html', 'css', 'js', 'open', 'watch']);
+gulp.task('default', ['html', 'css', 'fonts', 'js', 'open', 'watch']);

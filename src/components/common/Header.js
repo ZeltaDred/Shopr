@@ -11,7 +11,7 @@ var Header = React.createClass({
 			<Navbar inverse>
 				<Navbar.Header>
 					<Navbar.Brand>
-						<Link to="/">Shopr App</Link>
+						<Link to="/">Shopr</Link>
 					</Navbar.Brand>
 					<Navbar.Toggle />
 				</Navbar.Header>

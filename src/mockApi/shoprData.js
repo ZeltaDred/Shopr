@@ -5,6 +5,7 @@ module.exports = {
 		{
 			id: 0,
 			storeName: 'Walmart',
+			selected: false,
 			sections: [
 				{
 					id: 0,
@@ -53,6 +54,7 @@ module.exports = {
 		{
 			id: 1,
 			storeName: 'Costco',
+			selected: true,
 			sections: [
 				{
 					id: 0,

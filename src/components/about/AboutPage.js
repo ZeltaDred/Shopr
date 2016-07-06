@@ -13,7 +13,16 @@ var AboutPage = React.createClass({
 					<li>Organize by sections</li>
 					<li>Add items</li>
 					<li>Check items off and delete as group</li>
-					<li>Drag and drop items</li>
+					<li>Move items to another store</li>
+					<li>Members of group can update lists in real time</li>
+				</ul>
+				<p>Components</p>
+				<ul>
+					<li>HomePage & StoreList</li>
+					<li>ShoppingListPage & SectionList</li>
+					<li>MoveItemsPage</li>
+					<li>ManageStorePage & StoreForm</li>
+					<li>AboutPage</li>
 				</ul>
 			</div>
 		);

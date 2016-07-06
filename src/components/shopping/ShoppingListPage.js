@@ -2,7 +2,7 @@
 
 var React = require('react');
 
-var ShoppingList = React.createClass({
+var ShoppingListPage = React.createClass({
 	render: function() {
 		var stores = this.props.stores;
 
@@ -42,4 +42,4 @@ var ShoppingList = React.createClass({
 	}
 });
 
-module.exports = ShoppingList;
+module.exports = ShoppingListPage;
