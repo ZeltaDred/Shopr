@@ -12,13 +12,13 @@ var TextInput = React.createClass({
 			<div className = {wrapperClass}>
 				<label htmlFor={this.props.name}>{this.props.name}</label>
 				<div className="field">
-					<input 
+					<input
 						name={this.props.name}
 						className="form-control"
 						placeholder={this.props.placeholder}
 						ref={this.props.name}
 						value={this.props.value}
-						onChange={this.props.saveTodoState}
+						onChange={this.props.saveStoreState}
 					/>
 					<div>{this.props.error}</div>
 				</div>

@@ -31,7 +31,7 @@ var storeApi = {
     var existingStoreIndex;
     if (store.id && change) {
       existingStoreIndex = _.indexOf(stores, _.find(stores, {id: store.id}));
-      
+
       switch (store.done) {
         case false:
           store.done = true;
@@ -51,7 +51,7 @@ var storeApi = {
       //Just simulating creation here.
       //The server would generate ids for new authors in a real app.
       //Cloning so copy returned is passed by value rather than by reference.
-      store.id = _generateId();
+      store.id = _generateStoreId();
       stores.push(store);
     }
 
