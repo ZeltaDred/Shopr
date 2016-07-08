@@ -4,22 +4,31 @@ var React = require('react');
 var storeApi = require('../mockApi/storeApi');
 var Link = require('react-router').Link;
 var StoreList = require('./shopping/StoreList');
+var ShoppingStore = require('../stores/shoppingStore');
 
 var Stores = React.createClass({
 	getInitialState: function () {
 		return {
-			stores: []
+			stores: ShoppingStore.getAllStores()
 		}
 	},
 
 	componentWillMount: function () {
+		ShoppingStore.addChangeListener(this.onChange);
+	},
+
+	componentWillUnmount: function () {
+		ShoppingStore.removeChangeListener(this.onChange);
+	},
+
+	onChange: function () {
 		this.setState({
-			stores: storeApi.getAllStores()
+			stores: ShoppingStore.getAllStores()
 		});
 	},
 
 	render: function() {
-		
+
 		return(
 			<div>
 				<h2>Stores</h2>

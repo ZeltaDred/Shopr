@@ -3,6 +3,7 @@
 var React = require('react');
 var storeApi = require('../../mockApi/storeApi');
 var hashHistory = require('react-router').hashHistory;
+var Link = require('react-router').Link;
 
 var StoreList = React.createClass({
 
@@ -19,9 +20,9 @@ var StoreList = React.createClass({
 					<td>{store.storeName}</td>
 					<td>{sumItems}</td>
 					<td>
-						<a href="#" className="btn btn-primary btn-sm">
+						<Link className="btn btn-primary btn-sm" to="/shopping-list">
 							<span className="glyphicon glyphicon-list-alt"></span>
-						</a>
+						</Link>
 					</td>
 					<td>
 						<a href="#" className="btn btn-primary btn-sm">
@@ -31,7 +32,7 @@ var StoreList = React.createClass({
 				</tr>
 			)
 		};
-		
+
 		return(
 			<table className="table">
 				<thead>

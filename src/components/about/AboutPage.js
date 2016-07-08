@@ -14,7 +14,6 @@ var AboutPage = React.createClass({
 					<li>Add items</li>
 					<li>Check items off and delete as group</li>
 					<li>Move items to another store</li>
-					<li>Members of group can update lists in real time</li>
 				</ul>
 				<p>Components</p>
 				<ul>

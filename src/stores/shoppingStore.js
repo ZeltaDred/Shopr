@@ -4,8 +4,10 @@ var Dispatcher = require('../dispatcher/Dispatcher');
 var ActionTypes = require('../constants/actionTypes');
 var EventEmitter = require('events');
 var CHANGE_EVENT = 'change';
+var storeApi = require('../mockApi/storeApi');
 
-var _stores = [];
+//var _stores = [];
+var _stores = storeApi.getAllStores();
 
 var ShoppingStore = Object.assign({}, EventEmitter.prototype, {
   addChangeListener: function (callback) {
@@ -22,7 +24,7 @@ var ShoppingStore = Object.assign({}, EventEmitter.prototype, {
 
   getAllStores: function () {
     return _stores;
-  },
+  }
 
 });
 
@@ -36,4 +38,6 @@ Dispatcher.register(function (action) {
     default:
       // do nothing
   }
-})
+});
+
+module.exports = ShoppingStore;

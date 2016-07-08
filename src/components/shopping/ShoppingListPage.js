@@ -8,7 +8,7 @@ var ShoppingListPage = React.createClass({
 
 		return (
 			<div>
-
+				ShoppingListPage
 			</div>
 		);
 	}

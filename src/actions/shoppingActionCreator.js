@@ -2,7 +2,7 @@
 
 var Dispatcher = require('../dispatcher/Dispatcher');
 var ActionTypes = require('../constants/actionTypes');
-var todoApi = require('../mockApi/storeApi');
+var storeApi = require('../mockApi/storeApi');
 
 
 var ShoppingActionCreator = {
@@ -13,12 +13,12 @@ var ShoppingActionCreator = {
 
 		Dispatcher.dispatch({
 			actionType: ActionTypes.CREATE_STORE,
-			todo: newStore
+			store: newStore
 		});
 	},
 
 	deleteStore: function (store) {
-
+		
 	},
 };
 

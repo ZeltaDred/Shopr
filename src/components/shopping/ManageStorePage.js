@@ -23,7 +23,6 @@ var ManageStorePage = React.createClass({
 		var field = event.target.name;
 		var value = event.target.value;
 		var newStore = Object.assign({}, this.state.store);
-		console.log('object created');
 		newStore[field] = value;
 
 		this.setState({
@@ -38,7 +37,7 @@ var ManageStorePage = React.createClass({
 			return;
 		}
 
-		storeApi.saveStore(this.state.store);
+		ShoppingActionCreator.createStore(this.state.store);
 		toastr.success('Store saved!');
 		hashHistory.push('/');
 	},

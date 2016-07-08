@@ -4,6 +4,7 @@ var React = require('react');
 var TextInput = require('../common/TextInput');
 
 var StoreForm = React.createClass({
+
 	render: function() {
 		return (
 			<form onSubmit={this.props.saveStore}>
