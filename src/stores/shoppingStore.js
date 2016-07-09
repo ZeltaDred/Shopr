@@ -5,6 +5,7 @@ var ActionTypes = require('../constants/actionTypes');
 var EventEmitter = require('events');
 var CHANGE_EVENT = 'change';
 var storeApi = require('../mockApi/storeApi');
+var _ = require('lodash');
 
 //var _stores = [];
 var _stores = storeApi.getAllStores();
@@ -24,7 +25,11 @@ var ShoppingStore = Object.assign({}, EventEmitter.prototype, {
 
   getAllStores: function () {
     return _stores;
-  }
+  },
+
+  getStoreById: function (storeId) {
+    return _.find(_stores, {id: storeId})
+  },
 
 });
 

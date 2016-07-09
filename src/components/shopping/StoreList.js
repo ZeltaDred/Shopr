@@ -1,7 +1,6 @@
 'use strict';
 
 var React = require('react');
-var storeApi = require('../../mockApi/storeApi');
 var hashHistory = require('react-router').hashHistory;
 var Link = require('react-router').Link;
 
@@ -30,7 +29,7 @@ var StoreList = React.createClass({
 						</a>
 					</td>
 				</tr>
-			)
+			);
 		};
 
 		return(

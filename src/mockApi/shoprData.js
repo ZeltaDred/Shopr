@@ -14,17 +14,17 @@ module.exports = {
 						{
 							id: 0,
 							item: 'lettuce',
-							checked: false
+							selected: false
 						},
 						{
 							id: 1,
 							item: 'tomatoes',
-							checked: true
+							selected: true
 						},
 						{
 							id: 2,
 							item: 'apples',
-							checked: true
+							selected: true
 						},
 					]
 				},
@@ -35,17 +35,17 @@ module.exports = {
 						{
 							id: 0,
 							item: 'hamburger',
-							checked: false
+							selected: false
 						},
 						{
 							id: 1,
 							item: 'chicken',
-							checked: false
+							selected: false
 						},
 						{
 							id: 2,
 							item: 'pork chops',
-							checked: false
+							selected: false
 						},
 					]
 				},
@@ -63,11 +63,11 @@ module.exports = {
 						{
 							id: 0,
 							item: 'bread',
-							checked: false
+							selected: false
 						},{
 							id: 1,
 							item: 'croissants',
-							checked: false
+							selected: false
 						},
 					]
 				},
@@ -78,17 +78,17 @@ module.exports = {
 						{
 							id: 0,
 							item: 'paper towels',
-							checked: false
+							selected: false
 						},
 						{
 							id: 1,
 							item: 'tide',
-							checked: false
+							selected: false
 						},
 						{
 							id: 2,
 							item: 'dishwasher detergent',
-							checked: false
+							selected: false
 						},
 					]
 				},

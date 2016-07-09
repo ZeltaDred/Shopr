@@ -18,7 +18,11 @@ var ShoppingActionCreator = {
 	},
 
 	deleteStore: function (store) {
-		
+
+	},
+
+	changeSelected: function(item) {
+
 	},
 };
 

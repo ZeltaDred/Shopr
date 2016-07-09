@@ -39,7 +39,12 @@ var ManageStorePage = React.createClass({
 
 		ShoppingActionCreator.createStore(this.state.store);
 		toastr.success('Store saved!');
-		hashHistory.push('/');
+		
+		if(event.target.value === "save") {
+			hashHistory.push('/');
+		} else {
+			hashHistory.push('/shopping-list');
+		}
 	},
 
 	storeFormIsValid: function () {

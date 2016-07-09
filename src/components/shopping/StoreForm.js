@@ -5,9 +5,13 @@ var TextInput = require('../common/TextInput');
 
 var StoreForm = React.createClass({
 
+	changeValue: function() {
+		document.getElementById("save").value = "save";
+	},
+
 	render: function() {
 		return (
-			<form onSubmit={this.props.saveStore}>
+			<form>
 				<TextInput
 					name="storeName"
 					placeholder="Store Name"
@@ -15,10 +19,17 @@ var StoreForm = React.createClass({
 					saveStoreState={this.props.saveStoreState}
 					error={this.props.errors.storeName}
 				/>
-				<button className="btn btn-primary btn-sm" type="submit">
+				<button className="btn btn-primary btn-sm" type="submit"
+					onClick={this.props.saveStore} value="save">
 					Save Store &nbsp;
 					<span className="glyphicon glyphicon-save" aria-hidden="true"></span>
 				</button>
+
+				<button className="btn btn-primary btn-sm" type="submit"
+					onClick={this.props.saveStore}>
+					Create List &nbsp;
+					<span className="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+    		</button>
 			</form>
 		);
 	}
