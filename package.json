@@ -1,5 +1,5 @@
 {
-  "name": "shopr app_without_server",
+  "name": "shopr",
   "version": "1.0.0",
   "description": "shopping list app with dev server",
   "main": "index.js",
