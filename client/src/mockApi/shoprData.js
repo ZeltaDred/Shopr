@@ -5,46 +5,37 @@ module.exports = {
 		{
 			id: 0,
 			storeName: 'Walmart',
-			selected: false,
 			sections: [
 				{
-					id: 0,
-					name: 'Produce',
+					storeSection: 'Produce',
 					items: [
 						{
-							id: 0,
-							item: 'lettuce',
+							itemName: 'lettuce',
 							selected: false
 						},
 						{
-							id: 1,
-							item: 'tomatoes',
+							itemName: 'tomatoes',
 							selected: true
 						},
 						{
-							id: 2,
-							item: 'apples',
+							itemName: 'apples',
 							selected: true
 						},
 					]
 				},
 				{
-					id: 1,
-					name: 'Meat',
+					storeSection: 'Meat',
 					items: [
 						{
-							id: 0,
-							item: 'hamburger',
+							itemName: 'hamburger',
 							selected: false
 						},
 						{
-							id: 1,
-							item: 'chicken',
+							itemName: 'chicken',
 							selected: false
 						},
 						{
-							id: 2,
-							item: 'pork chops',
+							itemName: 'pork chops',
 							selected: false
 						},
 					]
@@ -54,40 +45,32 @@ module.exports = {
 		{
 			id: 1,
 			storeName: 'Costco',
-			selected: true,
 			sections: [
 				{
-					id: 0,
-					name: 'Bakery',
+					storeSection: 'Bakery',
 					items: [
 						{
-							id: 0,
-							item: 'bread',
+							itemName: 'bread',
 							selected: false
 						},{
-							id: 1,
-							item: 'croissants',
+							itemName: 'croissants',
 							selected: false
 						},
 					]
 				},
 				{
-					id: 1,
-					name: 'Supplies',
+					storeSection: 'Supplies',
 					items: [
 						{
-							id: 0,
-							item: 'paper towels',
+							itemName: 'paper towels',
 							selected: false
 						},
 						{
-							id: 1,
-							item: 'tide',
+							itemName: 'tide',
 							selected: false
 						},
 						{
-							id: 2,
-							item: 'dishwasher detergent',
+							itemName: 'dishwasher detergent',
 							selected: false
 						},
 					]

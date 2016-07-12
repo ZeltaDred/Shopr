@@ -15,9 +15,9 @@ var SectionList = React.createClass({
   render: function() {
     var listItems = function(item) {
       return (
-        <div key={item.id}>
+        <div key={item.itemName}>
           <li>
-            {item.item}
+            {item.itemName}
             <input
               type="checkbox"
               checked={item.selected}
@@ -31,9 +31,9 @@ var SectionList = React.createClass({
 
     var listSections = function(section) {
       return (
-        <div className="container" key={section.id}>
+        <div className="container" key={section.name}>
           <h3>
-            {section.name}
+            {section.storeSection}
             <button className="btn btn-primary btn-sm pull-right">
   					  Add Item &nbsp;
   					  <span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
