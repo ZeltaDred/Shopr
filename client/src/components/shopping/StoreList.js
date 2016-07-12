@@ -15,7 +15,7 @@ var StoreList = React.createClass({
 			}
 
 			return (
-				<tr key = {store.id}>
+				<tr key = {store._id}>
 					<td>{store.storeName}</td>
 					<td>{sumItems}</td>
 					<td>
