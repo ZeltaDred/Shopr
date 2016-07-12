@@ -2,8 +2,8 @@
 
 var React = require('react');
 var StoreForm = require('./StoreForm');
-var hashHistory = require('react-router').hashHistory;
-var storeApi = require('../../mockApi/storeApi');
+var browserHistory = require('react-router').browserHistory;
+//var storeApi = require('../../mockApi/storeApi');
 var toastr = require('toastr');
 var ShoppingActionCreator = require('../../actions/shoppingActionCreator');
 
@@ -41,9 +41,9 @@ var ManageStorePage = React.createClass({
 		toastr.success('Store saved!');
 		
 		if(event.target.value === "save") {
-			hashHistory.push('/');
+			browserHistory.push('/');
 		} else {
-			hashHistory.push('/shopping-list');
+			browserHistory.push('/shopping-list');
 		}
 	},
 
