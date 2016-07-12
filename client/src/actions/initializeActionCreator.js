@@ -8,7 +8,7 @@ var InitializeActionCreator = {
 
 	initializeApp: function () {
 		var storesPromise = API.getAllStores();
-
+		console.log('initialize')
 		storesPromise
 			.then(function (stores) {
 				Dispatcher.dispatch({
