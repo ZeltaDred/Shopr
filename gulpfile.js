@@ -87,4 +87,4 @@ gulp.task('watch', function() {
 });
 
 //gulp.task('default', ['html', 'css', 'js', 'images', 'open', 'watch']);
-gulp.task('default', ['html', 'css', 'fonts', 'js', 'open', 'watch']);
+gulp.task('default', ['html', 'css', 'fonts', 'js', 'watch']);

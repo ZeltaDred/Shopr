@@ -22,7 +22,7 @@ var SectionList = React.createClass({
               type="checkbox"
               checked={item.selected}
               className="pull-right"
-              onChange={this.changeSelection.bind(this, item.id)}
+              onChange={this.changeSelection.bind(this, item.itemName)}
             />
           </li>
         </div>
