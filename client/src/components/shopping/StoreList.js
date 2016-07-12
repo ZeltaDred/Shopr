@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react');
-var hashHistory = require('react-router').hashHistory;
+var browserHistory = require('react-router').browserHistory;
 var Link = require('react-router').Link;
 
 var StoreList = React.createClass({
