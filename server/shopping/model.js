@@ -2,11 +2,19 @@
 
 var mongoose = require('mongoose')
 
-var ItemSchema = new mongoose.Schema({
-  listItem: {type: String, required: true},
-  storeSection: {type: String, required: true},
-  storeName: {type: String, required: true},
-  selected: {type: Boolean, default: false},
+var StoreSchema = new mongoose.Schema({
+  storeName: { type: String, required: true, unique: true, dropDups: true },
+  sections:[
+    {
+      storeSection: { type: String },
+      items:[
+        {
+          itemName: { type: String },
+          selected: { type: Boolean , default: false }
+        }
+      ]
+    }
+  ]
 })
 
-module.exports = mongoose.model("Store", ItemSchema)
+module.exports = mongoose.model("Store", StoreSchema)

@@ -1,28 +1,26 @@
 'use strict'
 
-var Item = require('./model')
+var Store = require('./model')
 
 module.exports = {
 
 	// CREATE
-	create: createItem,
+	create: createStore,
 	// READ
-	index: indexItem,
+	index: indexStore,
 	// READ
-	show: showItem,
+	show: showStore,
 	// UPDATE
-	update: updateItem,
+	update: updateStore,
 	// DELETE
-	delete: deleteItem
+	delete: deleteStore
 }
 
-function createItem (req, res)
+function createStore (req, res)
 {
-	Item.create({
-		listItem: req.body.listItem,
-    storeSection: req.body.storeSection,
+	Store.create({
 		storeName: req.body.storeName,
-		selected: req.body.selected
+    sections: req.body.sections
 	},
 
 	function (err, item) {
@@ -32,32 +30,30 @@ function createItem (req, res)
 	})
 }
 
-function indexItem (req, res)
+function indexStore (req, res)
 {
-	Item.find(function (err, collection){
+	Store.find(function (err, collection){
 		if(err) return reportError(err, res)
 		res.json(collection)
 	})
 }
 
-function showItem (req, res)
+function showStore (req, res)
 {
-	findItem(req, res, function (item)
+	findStore(req, res, function (item)
 	{
 		res.json(item)
 	})
 }
 
-function updateItem (req, res)
+function updateStore (req, res)
 {
-	findItem(req, res, function (item)
+	findStore(req, res, function (item)
 	{
-		item.listItem = req.body.listItem
-		item.storeSection = req.body.storeSection
-		item.storeName = req.body.storeName
-    item.selected = req.body.selected
+		item.listStore = req.body.storeName
+		item.storeSection = req.body.sections
 
-		item.save(function (err)
+		Store.save(function (err)
 		{
 			if(err) return reportError(err, res)
 
@@ -66,9 +62,9 @@ function updateItem (req, res)
 	})
 }
 
-function deleteItem (req, res)
+function deleteStore (req, res)
 {
-	findItem(req, res, function (item)
+	findStore(req, res, function (item)
 	{
 		item.remove(function (err)
 		{
@@ -79,20 +75,20 @@ function deleteItem (req, res)
 }
 
 /**
-* @param {function (item)} success
+* @param {function (Store)} success
 **/
-function findItem (req, res, success)
+function findStore (req, res, success)
 {
 	var id = req.params.id
 
-	Item.findById(id, function (err, item)
+	Store.findById(id, function (err, item)
 	{
 		if(err) return reportError(err, res)
 
 		if(!item)
 		{
 			res.status(404).json({
-				error: 'Could not find item with that id'
+				error: 'Could not find Store with that id'
 			})
 		}
 		else

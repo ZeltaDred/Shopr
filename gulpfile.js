@@ -12,12 +12,12 @@ var config = {
 	port: 8500,
 	devBaseUrl: 'http://localhost',
 	paths: {
-		html: './src/*.html',
+		html: './client/src/*.html',
 		js: [
-			'./src/**/*.js',
+			'./client/src/**/*.js',
 		],
-		mainjs: './src/main.js',
-		images: './src/images/*',
+		mainjs: './client/src/main.js',
+		images: './client/src/images/*',
 		css: [
 			'node_modules/bootstrap/dist/css/bootstrap.min.css',
 			'node_modules/bootstrap/dist/bootstrap-theme.min.css',
