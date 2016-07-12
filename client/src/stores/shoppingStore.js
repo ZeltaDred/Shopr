@@ -28,7 +28,7 @@ var ShoppingStore = Object.assign({}, EventEmitter.prototype, {
   },
 
   getStoreById: function (storeId) {
-    return _.find(_stores, {id: storeId})
+    return _.find(_stores, {_id: storeId})
   },
 
 });
