@@ -3,38 +3,38 @@
 var ajax = require('./ajax');
 
 module.exports = {
-	getAllTodos: getAllTodos,
-	createTodo: createTodo,
-	deleteTodo: deleteTodo,
-	updateTodo: updateTodo
+	getAllStores: getAllStores,
+	createStore: createStore,
+	deleteStore: deleteStore,
+	updateStore: updateStore
 }
 
-function getAllTodos () {
-	var url = '/todos';
+function getAllStores () {
+	var url = '/shopping';
 	var data = {};
 	var type = 'GET';
 
 	return ajax(url, data, type);
 }
 
-function createTodo (todo) {
-	var url = '/todos';
-	var data = todo;
+function createStore (store) {
+	var url = '/shopping';
+	var data = store;
 
 	return ajax(url, data);
 }
 
-function deleteTodo (todo) {
-	var url = '/todos/' + todo._id;
+function deleteStore (store) {
+	var url = '/shopping/' + store._id;
 	var data = {};
 	var type = 'DELETE';
 
 	return ajax(url, data, type);
 }
 
-function updateTodo (todo) {
-	var url = '/todos/' + todo._id;
-	var data = todo;
+function updateStore (store) {
+	var url = '/shopping/' + store._id;
+	var data = store;
 	var type = 'PUT';
 
 	return ajax(url, data, type);
