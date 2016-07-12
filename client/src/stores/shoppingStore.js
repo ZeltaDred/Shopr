@@ -4,11 +4,9 @@ var Dispatcher = require('../dispatcher/Dispatcher');
 var ActionTypes = require('../constants/actionTypes');
 var EventEmitter = require('events');
 var CHANGE_EVENT = 'change';
-//var storeApi = require('../mockApi/storeApi');
 var _ = require('lodash');
 
 var _stores = [];
-//var _stores = storeApi.getAllStores();
 
 var ShoppingStore = Object.assign({}, EventEmitter.prototype, {
   addChangeListener: function (callback) {
@@ -28,13 +26,17 @@ var ShoppingStore = Object.assign({}, EventEmitter.prototype, {
   },
 
   getStoreById: function (storeId) {
-    return _.find(_stores, {id: storeId})
+    return _.find(_stores, {_id: storeId})
   },
 
 });
 
 Dispatcher.register(function (action) {
   switch (action.actionType) {
+    case ActionTypes.INITIALIZE:
+      _stores = action.initialData.stores;
+      ShoppingStore.emitChange();
+      break;
     case ActionTypes.CREATE_STORE:
       // add a store
       _stores.push(action.store);
