@@ -31,9 +31,9 @@ about himself  and  maybe add a link or  2.
 ```
 - Doug Osborn    
 
-> Doug is a senior at DSU majoring in IT with a minor in Computer Programming
+> Doug is a senior at DSU majoring in IT with a minor in Computer Programming. 
 > He is currently interning at Scientific Toolworks and working on a  C++ & Javascript
-> data visualization project.  Check out his profile at ([LinkedIn](https://www.linkedin.com/in/opensimian))
+> data visualization project.  Check out his profile at [LinkedIn](https://www.linkedin.com/in/opensimian).
 
 
 
