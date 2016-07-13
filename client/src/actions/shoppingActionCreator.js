@@ -7,14 +7,13 @@ var  API = require('../helpers/api');
 var ShoppingActionCreator = {
 	createStore: function (store) {
 		var newStorePromise = API.createStore(store);
-    
+
     newStorePromise.
 			then( function(newStore) {
 				Dispatcher.dispatch({
 				actionType: ActionTypes.CREATE_STORE,
-				store: newStore				
+				store: newStore
 			});
-
 		})
 
 		.fail(function(xhr, status, err) {
@@ -23,6 +22,19 @@ var ShoppingActionCreator = {
 	},
 
 	deleteStore: function (store) {
+		var deleteStorePromise = API.deleteStore(store);
+
+		deleteStorePromise
+			.then(function () {
+				Dispatcher.dispatch({
+					actionType: ActionTypes.DELETE_STORE,
+					storeId: store._id
+				})
+			})
+			.fail(function (xhr, status, err) {
+				console.log("Delete Store Failed!")
+			})
+
 
 	},
 
