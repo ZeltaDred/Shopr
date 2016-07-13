@@ -23,15 +23,15 @@ var AboutPage = React.createClass({
 					<li>ManageStorePage & StoreForm</li>
 					<li>AboutPage</li>
 				</ul>
-			</div>
-			<div>
+
+
 				<h2> DSU Code School 2016 Design Team</h2>
 				<ul>
 					<li> Matt </li>
 					<li> Doug </li>
 					<li> ??? </li>
 					<li> ??? </li>
-				<ul>
+				</ul>
 				<h2> Technology Stack </h2>
 				<ul>
 					<li> Javascript </li>
@@ -41,7 +41,11 @@ var AboutPage = React.createClass({
 					<li> Gulp CI </li>
 					<li> BootStrap CSS Framework </li>
 				</ul>
+
 			</div>
+		
+
+	
 			
 					
 				
