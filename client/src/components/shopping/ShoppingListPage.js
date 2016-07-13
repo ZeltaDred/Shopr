@@ -1,7 +1,8 @@
 'use strict';
 
 var React = require('react');
-var storeApi = require('../../mockApi/storeApi');
+//var storeApi = require('../../mockApi/storeApi');
+var API = require('../../helpers/api');
 var Link = require('react-router').Link;
 var SectionList = require('./SectionList');
 var ShoppingStore = require('../../stores/shoppingStore');

@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react');
-var hashHistory = require('react-router').hashHistory;
+var browserHistory = require('react-router').browserHistory;
 var Link = require('react-router').Link;
 
 var StoreList = React.createClass({
@@ -15,7 +15,7 @@ var StoreList = React.createClass({
 			}
 
 			return (
-				<tr key = {store.id}>
+				<tr key = {store._id}>
 					<td>{store.storeName}</td>
 					<td>{sumItems}</td>
 					<td>

@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react');
-var hashHistory = require('react-router').hashHistory;
+var browserHistory = require('react-router').browserHistory;
 var Link = require('react-router').Link;
 var ShoppingActionCreator = require('../../actions/shoppingActionCreator');
 
@@ -22,7 +22,7 @@ var SectionList = React.createClass({
               type="checkbox"
               checked={item.selected}
               className="pull-right"
-              onChange={this.changeSelection.bind(this, item.id)}
+              onChange={this.changeSelection.bind(this, item.itemName)}
             />
           </li>
         </div>
