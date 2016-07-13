@@ -31,7 +31,7 @@ var SectionList = React.createClass({
 
     var listSections = function(section) {
       return (
-        <div className="container" key={section.name}>
+        <div className="container" key={section.storeSection}>
           <h3>
             {section.storeSection}
             <button className="btn btn-primary btn-sm pull-right">

@@ -2,22 +2,21 @@
 
 var Dispatcher = require('../dispatcher/Dispatcher');
 var ActionTypes = require('../constants/actionTypes');
-//var storeApi = require('../mockApi/storeApi');
 var  API = require('../helpers/api');
-
 
 var ShoppingActionCreator = {
 	createStore: function (store) {
 		var newStorePromise = API.createStore(store);
 
-		newStorePromise.
+    newStorePromise.
 			then( function(newStore) {
 				Dispatcher.dispatch({
 				actionType: ActionTypes.CREATE_STORE,
-				store: newStore				
+				store: newStore
 			});
 		})
-		.fail(function(xhr, status, err){
+
+		.fail(function(xhr, status, err) {
 			console.log("failed to create a store");
 		})
 	},

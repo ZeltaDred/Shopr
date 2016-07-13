@@ -3,7 +3,6 @@
 var React = require('react');
 var StoreForm = require('./StoreForm');
 var browserHistory = require('react-router').browserHistory;
-//var storeApi = require('../../mockApi/storeApi');
 var toastr = require('toastr');
 var ShoppingActionCreator = require('../../actions/shoppingActionCreator');
 
@@ -39,7 +38,7 @@ var ManageStorePage = React.createClass({
 
 		ShoppingActionCreator.createStore(this.state.store);
 		toastr.success('Store saved!');
-		
+
 		if(event.target.value === "save") {
 			browserHistory.push('/');
 		} else {

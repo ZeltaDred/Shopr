@@ -21,6 +21,7 @@ var Stores = React.createClass({
 	},
 
 	onChange: function () {
+		console.log('onChange in HomePage called');
 		this.setState({
 			stores: ShoppingStore.getAllStores()
 		});
