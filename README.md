@@ -21,12 +21,12 @@ An interactive shopping list app built with React, Node, and Express
 
 **Original Concept:**
 
--Matt Evans
+- Matt Evans
 
 **Project Team**
 
--Matt Evans
--Doug Osborn
+- Matt Evans
+- Doug Osborn
 
 
 ### Local Implementation
