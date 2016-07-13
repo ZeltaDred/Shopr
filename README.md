@@ -21,10 +21,12 @@ DSU 2016 Code School
 
 **Original Concept:**
 
-Matt
-
-** Project Team **
 Matt Evans
+
+**Project Team**
+
+Matt Evans
+
 Doug Osborn
 
 
