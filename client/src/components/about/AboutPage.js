@@ -29,8 +29,8 @@ var AboutPage = React.createClass({
 				<ul>
 					<li> Matt </li>
 					<li> Doug </li>
-					<li> ??? </li>
-					<li> ??? </li>
+					<li> Jake </li>
+					<li> Will </li>
 				</ul>
 				<h2> Technology Stack </h2>
 				<ul>
