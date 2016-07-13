@@ -19,17 +19,17 @@ var StoreForm = React.createClass({
 					saveStoreState={this.props.saveStoreState}
 					error={this.props.errors.storeName}
 				/>
-				<button className="btn btn-primary btn-sm" type="submit"
+        <Link className="btn btn-primary btn-sm" to="/">
 					onClick={this.props.saveStore} value="save">
 					Save Store &nbsp;
 					<span className="glyphicon glyphicon-save" aria-hidden="true"></span>
-				</button>
+				</Link>
 
-				<button className="btn btn-primary btn-sm" type="submit"
+        <Link className="btn btn-primary btn-sm" to={"/shopping-list" + store._id}
 					onClick={this.props.saveStore}>
 					Create List &nbsp;
 					<span className="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
-    		</button>
+    		</Link>
 			</form>
 		);
 	}
