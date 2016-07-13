@@ -16,8 +16,6 @@ var ShoppingActionCreator = {
 				actionType: ActionTypes.CREATE_STORE,
 				store: newStore				
 			});
-
-
 		})
 		.fail(function(xhr, status, err){
 			console.log("failed to create a store");
@@ -25,6 +23,19 @@ var ShoppingActionCreator = {
 	},
 
 	deleteStore: function (store) {
+		var deleteStorePromise = API.deleteStore(store);
+
+		deleteStorePromise
+			.then(function () {
+				Dispatcher.dispatch({
+					actionType: ActionTypes.DELETE_STORE,
+					storeID: store._id
+				})
+			})
+			.fail(function (xhr, status, err) {
+				console.log("Delete Store Failed!")
+			})
+
 
 	},
 

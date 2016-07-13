@@ -45,10 +45,14 @@ var ShoppingListPage = React.createClass({
 					Move Checked &nbsp;
 					<span className="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
 				</Link>
-				<button className="btn btn-primary btn-sm" >
+
+
+				<button className="btn btn-primary btn-sm">
 					Delete Checked &nbsp;
 					<span className="glyphicon glyphicon-trash" aria-hidden="true"></span>
 				</button>
+
+
 				<SectionList
 					store={this.state.store}
 				/>

@@ -4,6 +4,7 @@ var Dispatcher = require('../dispatcher/Dispatcher');
 var ActionTypes = require('../constants/actionTypes');
 var EventEmitter = require('events');
 var CHANGE_EVENT = 'change';
+var toastr = require('toastr');
 var _ = require('lodash');
 
 var _stores = [];
@@ -41,6 +42,12 @@ Dispatcher.register(function (action) {
       // add a store
       _stores.push(action.store);
       ShoppingStore.emitChange();
+      break;
+    case ActionTypes.DELETE_STORE:
+      //delete a store
+      _.remove(_stores, {_id: action.storeId})
+      ShoppingStore.emitChange();
+      toastr.info("Deleted Store");
       break;
     default:
       // do nothing

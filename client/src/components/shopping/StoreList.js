@@ -3,8 +3,15 @@
 var React = require('react');
 var browserHistory = require('react-router').browserHistory;
 var Link = require('react-router').Link;
+var StoreActionCreator = require('../../actions/shoppingActionCreator');
 
 var StoreList = React.createClass({
+
+	deleteStore: function (storeId, event) {
+		event.preventDefault();
+		StoreActionCreator.deleteStore(storeId);
+	},
+
 
 	render: function() {
 
@@ -24,7 +31,9 @@ var StoreList = React.createClass({
 						</Link>
 					</td>
 					<td>
-						<a href="#" className="btn btn-primary btn-sm">
+						<a href="#" className="btn btn-primary btn-sm" onClick={this
+							.deleteStore
+							.bind(this, store)}>
 							<span className="glyphicon glyphicon-trash"></span>
 						</a>
 					</td>
