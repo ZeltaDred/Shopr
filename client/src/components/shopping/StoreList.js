@@ -19,7 +19,7 @@ var StoreList = React.createClass({
 					<td>{store.storeName}</td>
 					<td>{sumItems}</td>
 					<td>
-						<Link className="btn btn-primary btn-sm" to="/shopping-list">
+						<Link className="btn btn-primary btn-sm" to={"/shopping-list/" + store._id}>
 							<span className="glyphicon glyphicon-list-alt"></span>
 						</Link>
 					</td>

@@ -13,7 +13,6 @@ function getAllStores () {
 	var url = '/shopping';
 	var data = {};
 	var type = 'GET';
-	console.log('loading stores')
 	return ajax(url, data, type);
 }
 
