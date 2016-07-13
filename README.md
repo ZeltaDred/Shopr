@@ -38,14 +38,14 @@ The application will run with  no modifications to the MONGOdb configuration fil
 
 - Clone   the  github [REPO](https://github.com/MaxSinbraith/Shopr)
 
-- Run  npm install  in the local directory containing the  package.json file
+- Run `npm install`  in the local directory containing the  package.json file
 
-- Initialize Build Integration by running  gulp in the local directory containing gulpfile.js
+- Initialize Build Integration by running  `gulp` in the local directory containing gulpfile.js
 
-- Start the  Express app services  via  node app.js
+- Start the  Express app services  via  `node app.js`
 
 - Connect  via  browser
 
-Open  browswer and point a page  at  localhost:8062/
+Open  browswer and point a page  at  `Http://localhost:8062/`
 
 
