@@ -7,6 +7,9 @@ var Link = require('react-router').Link;
 var SectionList = require('./SectionList');
 var ShoppingStore = require('../../stores/shoppingStore');
 
+// this is just for development to use mockApi for Walmart
+// var _storeId = 0;
+
 var ShoppingListPage = React.createClass({
 	getInitialState: function () {
 		return {
@@ -15,14 +18,13 @@ var ShoppingListPage = React.createClass({
 	},
 
 	componentWillMount: function () {
-		var storeId = this.props.params.id;
+    var storeId = this.props.params.id;
 
 		if(storeId) {
 			this.setState({
 				store: ShoppingStore.getStoreById(storeId)
 			});
 		}
-		
 		ShoppingStore.addChangeListener(this.onChange);
 	},
 
