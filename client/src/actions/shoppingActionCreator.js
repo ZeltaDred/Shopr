@@ -29,7 +29,7 @@ var ShoppingActionCreator = {
 			.then(function () {
 				Dispatcher.dispatch({
 					actionType: ActionTypes.DELETE_STORE,
-					storeID: store._id
+					storeId: store._id
 				})
 			})
 			.fail(function (xhr, status, err) {
