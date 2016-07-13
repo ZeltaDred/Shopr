@@ -23,7 +23,32 @@ var AboutPage = React.createClass({
 					<li>ManageStorePage & StoreForm</li>
 					<li>AboutPage</li>
 				</ul>
+
+
+				<h2> DSU Code School 2016 Design Team</h2>
+				<ul>
+					<li> Matt </li>
+					<li> Doug </li>
+					<li> ??? </li>
+					<li> ??? </li>
+				</ul>
+				<h2> Technology Stack </h2>
+				<ul>
+					<li> Javascript </li>
+					<li> NodeJS / npm </li>
+					<li> Reactjs Single Page Application </li>
+					<li> Express Library for HTML functions </li>
+					<li> Gulp CI </li>
+					<li> BootStrap CSS Framework </li>
+				</ul>
+
 			</div>
+		
+
+	
+			
+					
+				
 		);
 	}
 });

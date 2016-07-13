@@ -1,33 +1,56 @@
-# Shopr
+
+
+
+# Shopr React App&nbsp; 
+
 An interactive shopping list app built with React, Node, and Express
 
-## basic  testing  instructions
+> [**Interactive Shopping List**](https://github.com/MaxSinbraith/Shopr) (Shopr) is a modern stand-alone 
+> web application (aka [SPA](https://en.wikipedia.org/wiki/Single-page_application)).
+> Shopr simplifies the task of maintaining a comprehensive shopping list, allowing the tracking of Stores,
+> Sections, and the current status of the list  items. 
+>
+> Shopr demonstrates how to use component-based UI development approach with best of breed
+> technologies including [React](http://facebook.github.io/react/), [Node](https://nodejs.org/),
+> [Express](https://expressjs.com/), [Gulp](https://http://gulpjs.com/), [MongoDB](https://http://gulpjs.com/), and more.
 
-- Install  MongoDB
---  start the  MongoDB service   in a terminal   type   "mongod"
+**The work is being sponsored by:**
+
+- DSU 2016 Code School
+
+**Original Concept:**
+
+- Matt Evans
+
+**Project Team**
+
+- Matt Evans
+```shell
+Matt  is a student at DSU  who needs to update the  setion with information
+about himself  and  maybe add a link or  2.
+```
+- Doug Osborn    
+
+> Doug is a senior at DSU majoring in IT with a minor in Computer Programming. 
+> He is currently interning at Scientific Toolworks and working on a  C++ & Javascript
+> data visualization project.  Check out his profile at [LinkedIn](https://www.linkedin.com/in/opensimian).
 
 
-- Clone   the  github Repo
 
--- On the  github  page   select  the  branch  you will be  working on
--- click  the  clone  button  and  copy the link  provided.
+### Local Implementation
+ 
+- Install  [MongoDB](https://http://gulpjs.com/)
 
---  Make  a local  directory somewhere easy to find
---  cd  to the local  directory
---  type  git  clone..  and then  paste the link to the  github repo
+- Clone   the  github [REPO](https://github.com/MaxSinbraith/Shopr)
 
-- Once the clone  complete,  build  the  npm  node  modules
---  in the directory where the package.json file is...
---  npm install....
+- Run `npm install`  in the local directory containing the  package.json file
 
-- After npm install,  open  another  terminal and   start the  gulp  watchers
---  type  gulp..
+- Initialize Build Integration by running  `gulp` in the local directory containing gulpfile.js
 
-- Start the  NODE.js  server
---   nope  app.js
+- Start the  Express app services  via  `node app.js`
 
+- Connect  via  browser
 
--  connect  via  browser
---   Open  browswer and point a page  at  localhost:8062/shopping
+Open  browswer and point a page  at  `Http://localhost:8062/`
 
 
