@@ -16,25 +16,22 @@ An interactive shopping list app built with React, Node, and Express
 
 **The work is being sponsored by:**
 
-DSU 2016 Code School
+-DSU 2016 Code School
 
 
 **Original Concept:**
 
-Matt Evans
+-Matt Evans
 
 **Project Team**
 
-Matt Evans
-
-Doug Osborn
+-Matt Evans
+-Doug Osborn
 
 
 ### Local Implementation
  
 - Install  [MongoDB](https://http://gulpjs.com/)
-
-The application will run with  no modifications to the MONGOdb configuration files.
 
 - Clone   the  github [REPO](https://github.com/MaxSinbraith/Shopr)
 
