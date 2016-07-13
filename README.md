@@ -35,6 +35,14 @@ about himself  and  maybe add a link or  2.
 > He is currently interning at Scientific Toolworks and working on a  C++ & Javascript
 > data visualization project.  Check out his profile at [LinkedIn](https://www.linkedin.com/in/opensimian).
 
+- William Chatwin
+
+> William Started at DSU one year ago majoring in Computer Science with a minor in Math.
+> He is fairly new to the field but after his first year and summer of Code School He is egar to learn more. 
+> It has been awesome experience so far.  
+> He has some personal projects he has worked on (http://silverrockstucco.com/). 
+> Also learning other languages on the side. LinkedIn: (https://www.linkedin.com/in/william-chatwin-150bb0118)
+
 
 
 ### Local Implementation
