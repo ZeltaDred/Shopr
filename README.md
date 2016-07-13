@@ -25,8 +25,11 @@ An interactive shopping list app built with React, Node, and Express
 **Project Team**
 
 - Matt Evans
-- Doug Osborn        
-([LinkedIn](https://www.linkedin.com/in/opensimian))
+```shell
+Matt  is a student at DSU  who needs to update the  setion with information
+about himself  and  maybe add a link or  2.
+```
+- Doug Osborn        ([LinkedIn](https://www.linkedin.com/in/opensimian))
 ```shell
 Doug is a senior at DSU majoring in IT with a minor in Computer Programming
 He is currently interning at Scientific Toolworks and working on a  C++ & Javascript
