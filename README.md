@@ -29,12 +29,11 @@ An interactive shopping list app built with React, Node, and Express
 Matt  is a student at DSU  who needs to update the  setion with information
 about himself  and  maybe add a link or  2.
 ```
-- Doug Osborn        ([LinkedIn](https://www.linkedin.com/in/opensimian))
-```shell
-Doug is a senior at DSU majoring in IT with a minor in Computer Programming
-He is currently interning at Scientific Toolworks and working on a  C++ & Javascript
-data visualization project.
-```
+- Doug Osborn        
+> Doug is a senior at DSU majoring in IT with a minor in Computer Programming
+> He is currently interning at Scientific Toolworks and working on a  C++ & Javascript
+> data visualization project.  Check out his profile at ([LinkedIn](https://www.linkedin.com/in/opensimian))
+
 
 
 ### Local Implementation
