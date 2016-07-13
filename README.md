@@ -12,18 +12,29 @@ An interactive shopping list app built with React, Node, and Express
 >
 > Shopr demonstrates how to use component-based UI development approach with best of breed
 > technologies including [React](http://facebook.github.io/react/), [Node](https://nodejs.org/),
-> [Express](https://expressjs.com/), [Gulp](https://http://gulpjs.com/), and more.
+> [Express](https://expressjs.com/), [Gulp](https://http://gulpjs.com/), [MongDB](https://http://gulpjs.com/), and more.
 
 **The work is being sponsored by:**
+
 DSU 2016 Code School
 
-## basic  testing  instructions
 
+**Original Concept:**
+
+Matt
+
+** Project Team **
+Matt Evans
+Doug Osborn
+
+
+### Local Implementation
+ 
 - Install  MongoDB
 --  start the  MongoDB service   in a terminal   type   "mongod"
 
 
-- Clone   the  github Repo
+- Clone   the  github [REPO](https://github.com/MaxSinbraith/Shopr)
 
 -- On the  github  page   select  the  branch  you will be  working on
 -- click  the  clone  button  and  copy the link  provided.
