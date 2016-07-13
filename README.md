@@ -16,8 +16,7 @@ An interactive shopping list app built with React, Node, and Express
 
 **The work is being sponsored by:**
 
--DSU 2016 Code School
-
+- DSU 2016 Code School
 
 **Original Concept:**
 
