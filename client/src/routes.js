@@ -14,7 +14,7 @@ var routes = (
 		<IndexRoute component={HomePage} />
 		<Route path="/about" component={AboutPage} />
 		<Route path="/manage-store" component={ManageStorePage} />
-		<Route path="/shopping-list" component={ShoppingListPage} />
+		<Route path="/shopping-list/:id" component={ShoppingListPage} />
 	</Route>
 );
 
