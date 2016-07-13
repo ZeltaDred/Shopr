@@ -1,5 +1,21 @@
-# Shopr
+
+
+
+# Shopr React App&nbsp; 
+
 An interactive shopping list app built with React, Node, and Express
+
+> [**Interactive Shopping List**](https://github.com/MaxSinbraith/Shopr) (Shopr) is a modern stand-alone 
+> web applications (aka [SPA](https://en.wikipedia.org/wiki/Single-page_application)s).
+> Shopr simplifies the task of maintaining a comprehensive shopping list, allowing the tracking of Stores,
+> Sections, and the  status of the list  items). 
+> Shopr demonstrates how to use component-based UI development approach with best of breed
+> technologies including [React](http://facebook.github.io/react/), [Node](http://redux.js.org/),
+> [Express](http://babeljs.io/), [Gulp](https://webpack.github.io/), [Browsersync](https://browsersync.io/),
+> [React Hot Loader](http://gaearon.github.io/react-hot-loader/) and more.
+
+**The work is being sponsored by:**
+DSU 2016 Code School
 
 ## basic  testing  instructions
 
@@ -31,21 +47,3 @@ An interactive shopping list app built with React, Node, and Express
 --   Open  browswer and point a page  at  localhost:8062/shopping
 
 
-# Shopr React App&nbsp; 
-
-> [**React Static Boilerplate**](https://github.com/kriasoft/react-static-boilerplate) (RSB) is an
-> opinionated boilerplate and tooling for creating modern stand-alone web applications (aka
-> [SPA](https://en.wikipedia.org/wiki/Single-page_application)s) for a serverless architecture. RSB
-> significantly reduces cost by eliminating the need for servers such as EC2 instances because the
-> entire site can be hosted directly from CDN ([Firebase](https://www.firebase.com/), [GitHub
-> Pages](https://pages.github.com/), [Amazon S3](http://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html),
-> or other similar cloud storage). Sites built with RSB cab be fully functional with REST API or
-> GraphQL calls to micro-services such as [Amazon Lambda](https://aws.amazon.com/lambda/),
-> [Azure Functions](https://azure.microsoft.com/services/functions/), or dynamic Docker endpoints
-> hosted on [DigitalOcean](https://www.digitalocean.com/?refcode=eef302dbae9f&utm_source=github&utm_medium=oss_sponsorships&utm_campaign=opencollective).
-> RSB demonstrates how to use component-based UI development approach with best of breed
-> technologies including [React](http://facebook.github.io/react/), [Redux](http://redux.js.org/),
-> [Babel](http://babeljs.io/), [Webpack](https://webpack.github.io/), [Browsersync](https://browsersync.io/),
-> [React Hot Loader](http://gaearon.github.io/react-hot-loader/) and more.
-
-**The work is being sponsored by:**
