@@ -11,7 +11,7 @@ var ShoppingActionCreator = {
 		var newStorePromise = API.createStore(store);
 
 		newStorePromise.
-			then( function(store) {
+			then( function(newStore) {
 				Dispatcher.dispatch({
 				actionType: ActionTypes.CREATE_STORE,
 				store: newStore				
