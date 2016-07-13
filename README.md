@@ -6,13 +6,13 @@
 An interactive shopping list app built with React, Node, and Express
 
 > [**Interactive Shopping List**](https://github.com/MaxSinbraith/Shopr) (Shopr) is a modern stand-alone 
-> web applications (aka [SPA](https://en.wikipedia.org/wiki/Single-page_application)s).
+> web application (aka [SPA](https://en.wikipedia.org/wiki/Single-page_application)).
 > Shopr simplifies the task of maintaining a comprehensive shopping list, allowing the tracking of Stores,
-> Sections, and the  status of the list  items). 
+> Sections, and the current status of the list  items. 
+>
 > Shopr demonstrates how to use component-based UI development approach with best of breed
-> technologies including [React](http://facebook.github.io/react/), [Node](http://redux.js.org/),
-> [Express](http://babeljs.io/), [Gulp](https://webpack.github.io/), [Browsersync](https://browsersync.io/),
-> [React Hot Loader](http://gaearon.github.io/react-hot-loader/) and more.
+> technologies including [React](http://facebook.github.io/react/), [Node](https://nodejs.org/),
+> [Express](https://expressjs.com/), [Gulp](https://http://gulpjs.com/), and more.
 
 **The work is being sponsored by:**
 DSU 2016 Code School
