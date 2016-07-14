@@ -1,11 +1,11 @@
 'use strict';
 
 var React = require('react');
-//var storeApi = require('../../mockApi/storeApi');
 var API = require('../../helpers/api');
 var Link = require('react-router').Link;
 var SectionList = require('./SectionList');
 var ShoppingStore = require('../../stores/shoppingStore');
+var _ = require('lodash');
 
 var storeId;
 
@@ -33,12 +33,11 @@ var ShoppingListPage = React.createClass({
 
 	onChange: function () {
 		this.setState({
-			store: ShoppingStore.getStoreById(_storeId)
+			store: ShoppingStore.getStoreById(storeId)
 		});
 	},
 
 	render: function() {
-
 
 		return (
 			<div>
@@ -52,12 +51,10 @@ var ShoppingListPage = React.createClass({
 					<span className="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
 				</Link>
 
-
 				<button className="btn btn-primary btn-sm">
 					Delete Checked &nbsp;
 					<span className="glyphicon glyphicon-trash" aria-hidden="true"></span>
 				</button>
-
 
 				<SectionList
 					store={this.state.store}

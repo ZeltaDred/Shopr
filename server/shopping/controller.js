@@ -50,10 +50,10 @@ function updateStore (req, res)
 {
 	findStore(req, res, function (item)
 	{
-		item.listStore = req.body.storeName
-		item.storeSection = req.body.sections
+		item.StoreName = req.body.storeName
+		item.sections = req.body.sections
 
-		Store.save(function (err)
+		item.save(function (err)
 		{
 			if(err) return reportError(err, res)
 
