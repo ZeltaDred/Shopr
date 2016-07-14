@@ -49,6 +49,12 @@ Dispatcher.register(function (action) {
       ShoppingStore.emitChange();
       toastr.info("Deleted Store");
       break;
+      case ActionTypes.UPDATE_STORE:
+  			var existingStore = _.find(_stores, {_id: action.store._id});
+  			var existingStoreIndex = _.indexOf(_stores, existingStore);
+  			_stores.splice(existingStoreIndex, 1, action.store);
+  			ShoppingStore.emitChange();
+  			break;
     default:
       // do nothing
   }

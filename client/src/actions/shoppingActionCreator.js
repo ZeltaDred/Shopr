@@ -34,13 +34,21 @@ var ShoppingActionCreator = {
 			.fail(function (xhr, status, err) {
 				console.log("Delete Store Failed!")
 			})
-
-
 	},
 
-	changeSelected: function(item) {
-
-	},
+	updateStore: function(store) {
+		var updateStorePromise = API.updateStore(store);
+		updateStorePromise
+			.then(function (updatedStore) {
+				Dispatcher.dispatch({
+					actionType: ActionTypes.UPDATE_STORE,
+					store: updatedStore
+				});
+			})
+			.fail(function (xhr, status, err) {
+				console.log('Update Store Failed!')
+			})
+	}
 };
 
 module.exports = ShoppingActionCreator;
