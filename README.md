@@ -25,6 +25,7 @@ An interactive shopping list app built with React, Node, and Express
 **Project Team**
 
 - Matt Evans
+
 > Matt is a senior at DSU. Major: CIT with Software Development Emphasis.
 > See profile at [LinkedIn] (https://www.linkedin.com/in/matt-evans-413b3a69)
 
