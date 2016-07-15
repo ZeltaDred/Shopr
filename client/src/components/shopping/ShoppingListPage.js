@@ -57,7 +57,7 @@ var ShoppingListPage = React.createClass({
   		storeSection: "",
   		items: [{
   			id: "",
-  			itemName: "apple"
+  			itemName: "appleJuice"
   		}]
   	};
   	var value = event.target.value;
