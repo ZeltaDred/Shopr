@@ -4,32 +4,33 @@ var React = require('react');
 var browserHistory = require('react-router').browserHistory;
 var Link = require('react-router').Link;
 var ShoppingActionCreator = require('../../actions/shoppingActionCreator');
+var ItemList = require('./ItemList');
 
 var SectionList = React.createClass({
 
-  changeSelected: function (item, event) {
-    event.preventDefault();
-    item.selected ? item.selected = false : item.selected = true;
-    ShoppingActionCreator.updateStore(this.props.store);
-  },
+  // changeSelected: function (item, event) {
+  //   event.preventDefault();
+  //   item.selected ? item.selected = false : item.selected = true;
+  //   ShoppingActionCreator.updateStore(this.props.store);
+  // },
 
   render: function() {
-    var listItems = function(item) {
-      return (
-        <div key={item._id}>
-        <label>
-          <input
-            type="checkbox"
-            checked={item.selected}
-            onChange={this.changeSelected.bind(this, item)}
-            name="items"
-            value={item._id}
-          />
-          {item.itemName}
-        </label>
-        </div>
-      );
-    };
+  //   var listItems = function(item) {
+  //     return (
+  //       <div key={item._id}>
+  //       <label>
+  //         <input
+  //           type="checkbox"
+  //           checked={item.selected}
+  //           onChange={this.changeSelected.bind(this, item)}
+  //           name="items"
+  //           value={item._id}
+  //         />
+  //         {item.itemName}
+  //       </label>
+  //       </div>
+  //     );
+  //   };
 
     var listSections = function(section) {
       return (
@@ -41,7 +42,11 @@ var SectionList = React.createClass({
   					  <span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
   				  </button>
           </h3>
-          {section.items.map(listItems, this)}
+          {/*{section.items.map(listItems, this)}*/}
+          <ItemList
+              section={section} 
+              store={this.props.store}
+          />
         </div>
       );
     };
