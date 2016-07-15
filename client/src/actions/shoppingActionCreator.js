@@ -2,7 +2,7 @@
 
 var Dispatcher = require('../dispatcher/Dispatcher');
 var ActionTypes = require('../constants/actionTypes');
-var  API = require('../helpers/api');
+var API = require('../helpers/api');
 
 var ShoppingActionCreator = {
 	createStore: function (store) {
@@ -19,6 +19,8 @@ var ShoppingActionCreator = {
 		.fail(function(xhr, status, err) {
 			console.log("failed to create a store");
 		})
+
+    return newStorePromise;
 	},
 
 	deleteStore: function (store) {
