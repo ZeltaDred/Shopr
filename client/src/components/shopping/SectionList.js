@@ -44,7 +44,8 @@ var SectionList = React.createClass({
           </h3>
           {/*{section.items.map(listItems, this)}*/}
           <ItemList
-          section={section} 
+              section={section} 
+              store={this.props.store}
           />
         </div>
       );

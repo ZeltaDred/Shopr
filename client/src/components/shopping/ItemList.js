@@ -4,11 +4,20 @@ var React = require('react');
 var ShoppingActionCreator = require('../../actions/shoppingActionCreator');
 
 var ItemList = React.createClass({
+	
 
 	changeSelected: function (item, event) {
 	    event.preventDefault();
+
+	    // from this.props.store, find our section
+
+
+	    // from  section.items, find our item as itemStore
+
+	    
 	    item.selected ? item.selected = false : item.selected = true;
-	    ShoppingActionCreator.updateStore(this.props.section);
+
+	    ShoppingActionCreator.updateStore(this.props.store);
 	  },
 
   	render: function() {

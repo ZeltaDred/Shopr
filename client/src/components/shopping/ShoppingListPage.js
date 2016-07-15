@@ -50,23 +50,19 @@ var ShoppingListPage = React.createClass({
     console.log(event.target.value);
   },
 
-	saveSectionState: function (event) {
+saveSectionState: function (event) {
 		var newStore = Object.assign({}, this.state.store);
   		var newSection = {
   		id: "",
   		storeSection: "",
-  		items: [{
-  			id: "",
-  			itemName: "appleJuice"
-  		}]
+  		items: []
   	};
-  	var value = event.target.value;
+  	// var value = event.target.value;
   	newSection.storeSection = newSectionName;
 
   	newStore.sections.push(newSection);
-  	this.setState({
-      store: newStore
-    });
+  	ShoppingActionCreator.updateStore(newStore);
+
   	console.log(this.state.store);
 },
 
