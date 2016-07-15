@@ -10,7 +10,7 @@ var _ = require('lodash');
 
 var TextInput = require('../common/TextInput');
 var ShoppingActionCreator = require('../../actions/shoppingActionCreator');
-
+var newSectionName = "";
 var storeId;
 
 var ShoppingListPage = React.createClass({
@@ -19,8 +19,9 @@ var ShoppingListPage = React.createClass({
       store: ShoppingStore.getStoreById(storeId)
     }
   },
+	
 
-  componentWillMount: function () {
+	componentWillMount: function () {
     storeId = this.props.params.id;
 
     if(storeId) {
@@ -41,23 +42,33 @@ var ShoppingListPage = React.createClass({
     });
 
   },
-
-  saveSectionState: function (event) {
-    var field = event.target.name;
-    var value = event.target.value;
-    var newSection = Object.assign({}, this.state.store);
-    
-    //put the new section in the sections array  somehow
-    newSection[field] = value;
-
-    this.setState({
-      store: newSection
-    });
-
+	
+	saveTextState: function (event) {
+	newSectionName = "";
+    newSectionName = event.target.value;
     console.log(this.state.store);
-    console.log(event.target.name);
     console.log(event.target.value);
   },
+
+	saveSectionState: function (event) {
+		var newStore = Object.assign({}, this.state.store);
+  		var newSection = {
+  		id: "",
+  		storeSection: "",
+  		items: [{
+  			id: "",
+  			itemName: "apple"
+  		}]
+  	};
+  	var value = event.target.value;
+  	newSection.storeSection = newSectionName;
+
+  	newStore.sections.push(newSection);
+  	this.setState({
+      store: newStore
+    });
+  	console.log(this.state.store);
+},
 
   render: function() {
     {/*		return (
@@ -112,11 +123,12 @@ var ShoppingListPage = React.createClass({
           name={this.state.name}
           placeholder="Add Section"
           value={this.state.value}
-          onChange={this.saveSectionState}
+          onChange={this.saveTextState}
           />
 
-          <button className="btn btn-primary btn-xs glyphicon glyphicon-plus" value="+">
-        {/*onclick add a function here*/}
+          <button className="btn btn-primary btn-xs glyphicon glyphicon-plus" 
+          value="+"
+          onClick = {this.saveSectionState}>
         </button>
 
         <button className="btn btn-primary btn-sm pull-right" to="/choose-store">
