@@ -51,6 +51,7 @@ var ShoppingActionCreator = {
 				console.log('Update Store Failed!')
 			})
 	}
+
 };
 
 module.exports = ShoppingActionCreator;
