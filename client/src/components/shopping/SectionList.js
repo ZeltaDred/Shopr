@@ -4,7 +4,7 @@ var React = require('react');
 var browserHistory = require('react-router').browserHistory;
 var Link = require('react-router').Link;
 var ShoppingActionCreator = require('../../actions/shoppingActionCreator');
-var ItemList = require('./ItemList');
+var itemSpacer = ' - ';
 
 var SectionList = React.createClass({
 
@@ -15,22 +15,23 @@ var SectionList = React.createClass({
   // },
 
   render: function() {
-  //   var listItems = function(item) {
-  //     return (
-  //       <div key={item._id}>
-  //       <label>
-  //         <input
-  //           type="checkbox"
-  //           checked={item.selected}
-  //           onChange={this.changeSelected.bind(this, item)}
-  //           name="items"
-  //           value={item._id}
-  //         />
-  //         {item.itemName}
-  //       </label>
-  //       </div>
-  //     );
-  //   };
+    var listItems = function(item) {
+      return (
+        <div key={item._id}>
+        <label>
+          <input
+            type="checkbox"
+            checked={item.selected}
+            onChange={this.changeSelected.bind(this, item)}
+            name="items"
+            value={item._id}
+          />
+          {itemSpacer}
+          {item.itemName}
+        </label>
+        </div>
+      );
+    };
 
     var listSections = function(section) {
       return (
