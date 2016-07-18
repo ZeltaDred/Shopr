@@ -4,6 +4,7 @@ var React = require('react');
 var browserHistory = require('react-router').browserHistory;
 var Link = require('react-router').Link;
 var ShoppingActionCreator = require('../../actions/shoppingActionCreator');
+var spacer = ' - ';
 
 var SectionList = React.createClass({
 
@@ -25,6 +26,7 @@ var SectionList = React.createClass({
             name="items"
             value={item._id}
           />
+          {spacer}
           {item.itemName}
         </label>
         </div>
