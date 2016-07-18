@@ -5,57 +5,73 @@ var browserHistory = require('react-router').browserHistory;
 var Link = require('react-router').Link;
 var ShoppingActionCreator = require('../../actions/shoppingActionCreator');
 var ItemList = require('./ItemList');
+var newItemName = "";
+//var newIndex = 0
 
 var SectionList = React.createClass({
 
-  // changeSelected: function (item, event) {
-  //   event.preventDefault();
-  //   item.selected ? item.selected = false : item.selected = true;
-  //   ShoppingActionCreator.updateStore(this.props.store);
-  // },
+  saveTextState: function (event) {
+    newItemName = "";
+    newItemName = event.target.value;
+
+  },
+
+  saveItem: function (index, event) {
+    var newStore = Object.assign({}, this.props.store);
+    
+    var newItem = [{
+      id: index,
+      itemName: newItemName
+    }];
+    
+    newStore.sections[index].items.push(newItem);
+    ShoppingActionCreator.updateStore(newStore);
+
+},
+
 
   render: function() {
-  //   var listItems = function(item) {
-  //     return (
-  //       <div key={item._id}>
-  //       <label>
-  //         <input
-  //           type="checkbox"
-  //           checked={item.selected}
-  //           onChange={this.changeSelected.bind(this, item)}
-  //           name="items"
-  //           value={item._id}
-  //         />
-  //         {item.itemName}
-  //       </label>
-  //       </div>
-  //     );
-  //   };
 
-    var listSections = function(section) {
+
+
+    var listSections = function(section, index) {
       return (
-        <div className="container" key={section.storeSection}>
+      <div className="container" key={section.storeSection}>
           <h3>
-            {section.storeSection}
-            <button className="btn btn-primary btn-sm pull-right">
-  					  Add Item &nbsp;
-  					  <span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
-  				  </button>
+          {section.storeSection}
+
+              <input
+                placeholder="Add Item"
+                value={this.props.value}
+                onChange={this.saveTextState}
+              />
+
+              <button className="btn btn-primary btn-sm"
+                onClick={this.saveItem.bind(this, index)}
+                value="+"
+              >
+              
+              <span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
+              </button>
           </h3>
           {/*{section.items.map(listItems, this)}*/}
+          
           <ItemList
-              section={section} 
-              store={this.props.store}
+            section={section}
+            store={this.props.store}
           />
-        </div>
+      </div>
       );
     };
 
-    return (
-      <div>
-        <ul>{this.props.store.sections.map(listSections, this)}</ul>
-      </div>
-    );
+  return (
+    <div>
+
+    <ul>{this.props.store.sections.map(listSections, this)}</ul>
+
+    
+    </div>
+  );
   }
 });
 
