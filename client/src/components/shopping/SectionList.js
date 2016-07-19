@@ -6,7 +6,6 @@ var Link = require('react-router').Link;
 var ShoppingActionCreator = require('../../actions/shoppingActionCreator');
 var ItemList = require('./ItemList');
 var newItemName = "";
-//var newIndex = 0
 
 var SectionList = React.createClass({
 
@@ -24,18 +23,18 @@ var SectionList = React.createClass({
       id: index,
       itemName: newItemName
     };
-    
-    newStore.sections[index].items.push(newItem);
-    ShoppingActionCreator.updateStore(newStore);
 
-},
+    newStore.sections[index].items.push(newItem);
+
+    ShoppingActionCreator.updateStore(newStore);
+  },
 
 
   render: function() {
     var listSections = function(section, index) {
       return (
       <div className="container" key={section.storeSection}>
-          <h3>
+          <h4>
           {section.storeSection}
 
               <input
@@ -52,8 +51,7 @@ var SectionList = React.createClass({
               
               <span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
               </button>
-          </h3>
-          {/*{section.items.map(listItems, this)}*/}
+          </h4>
           
           <ItemList
             section={section}

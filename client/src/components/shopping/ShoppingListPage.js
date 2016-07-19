@@ -19,7 +19,6 @@ var ShoppingListPage = React.createClass({
     	}
   	},
 	
-
 	componentWillMount: function () {
 		storeId = this.props.params.id;
 
@@ -32,7 +31,7 @@ var ShoppingListPage = React.createClass({
   	},
 
 	componentWillUnmount: function () {
-    ShoppingStore.removeChangeListener(this.onChange);
+    	ShoppingStore.removeChangeListener(this.onChange);
   	},
 
 	onChange: function () {
@@ -54,18 +53,14 @@ var ShoppingListPage = React.createClass({
   		storeSection: "",
   		items: []
   	};
-  	// var value = event.target.value;
+  	
   	newSection.storeSection = newSectionName;
 
   	newStore.sections.push(newSection);
   	ShoppingActionCreator.updateStore(newStore);
-
-  	//console.log(this.state.store);
 },
 
   render: function() {
-  	console.log(this.state.store);
-  	console.log("in render")
     return (
 
           <div className="container">

@@ -14,7 +14,6 @@ var ItemList = React.createClass({
 
   	render: function() {
 	    var listItems = function(item, index) {
-	    	console.log(this.props.store.sections[index].item);
 	      	return (
 		        <div key={index}>
 		        <label>
