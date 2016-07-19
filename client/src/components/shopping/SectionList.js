@@ -24,7 +24,7 @@ var SectionList = React.createClass({
     }
 
     var newStore = Object.assign({}, this.props.store);
-    
+
     var newItem = {
       id: index,
       itemName: newItemName
@@ -58,43 +58,44 @@ var SectionList = React.createClass({
   render: function() {
     var listSections = function(section, index) {
       return (
-      <div className="container" key={section.storeSection}>
-          <h4>
-          {section.storeSection}
-
-              <input
-                id = {index}
-                placeholder="Add Item"
-                type="text"
-                value={this.props.value}
-                onChange={this.saveTextState}
-              />
-
-              <button className="btn btn-primary btn-sm"
-                onClick={this.saveItem.bind(this, index)}
-                value="+"
-              >
-              
+        <div className="container" key={section.storeSection}>
+          <div>
+            <h2>{section.storeSection}
+            <button className="btn btn-primary btn-sm pull-right"
+              onClick={this.saveItem.bind(this, index)}
+              value="+">
               <span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
-              </button>
-          </h4>
-          
+            </button>
+
+            <input
+              id = {index}
+              placeholder="Add Item"
+              type="text"
+              className="pull-right"
+              value={this.props.value}
+              onChange={this.saveTextState}
+            />
+          </h2>
+        </div>
+
+
           <ItemList
             section={section}
             store={this.props.store}
           />
+
       </div>
       );
     };
 
-  return (
-    <div>
+    return (
+      <div>
 
-    <ul>{this.props.store.sections.map(listSections, this)}</ul>
+        <ul>{this.props.store.sections.map(listSections, this)}</ul>
 
-    
-    </div>
-  );
+
+      </div>
+    );
   }
 });
 
