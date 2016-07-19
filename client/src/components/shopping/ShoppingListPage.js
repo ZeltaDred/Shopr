@@ -4,25 +4,23 @@ var React = require('react');
 var API = require('../../helpers/api');
 var Link = require('react-router').Link;
 var SectionList = require('./SectionList');
-var TextInput = require('../common/TextInput');
 var ShoppingStore = require('../../stores/shoppingStore');
 var _ = require('lodash');
-
-var TextInput = require('../common/TextInput');
 var ShoppingActionCreator = require('../../actions/shoppingActionCreator');
+
+
 var newSectionName = "";
 var storeId;
 
 var ShoppingListPage = React.createClass({
-  getInitialState: function () {
-    return {
-      store: ShoppingStore.getStoreById(storeId)
-    }
-  },
+ 	getInitialState: function () {
+    	return {
+      		store: ShoppingStore.getStoreById(storeId)
+    	}
+  	},
 	
-
 	componentWillMount: function () {
-    storeId = this.props.params.id;
+		storeId = this.props.params.id;
 
     if(storeId) {
       this.setState({
@@ -30,29 +28,28 @@ var ShoppingListPage = React.createClass({
       });
     }
     ShoppingStore.addChangeListener(this.onChange);
-  },
+  	},
 
-  componentWillUnmount: function () {
-    ShoppingStore.removeChangeListener(this.onChange);
-  },
+	componentWillUnmount: function () {
+    	ShoppingStore.removeChangeListener(this.onChange);
+  	},
 
-  onChange: function () {
+	onChange: function () {
     this.setState({
       store: ShoppingStore.getStoreById(storeId)
     });
 
-  },
+  	},
 	
 	saveTextState: function (event) {
-	newSectionName = "";
-    newSectionName = event.target.value;
-    console.log(this.state.store);
-    console.log(event.target.value);
-  },
+		newSectionName = "";
+    	newSectionName = event.target.value;
+  	},
 
 	saveSectionState: function (event) {
 		var newStore = Object.assign({}, this.state.store);
   		var newSection = {
+<<<<<<< HEAD
   		id: "",
   		storeSection: "",
   		items: [{
@@ -130,19 +127,54 @@ var ShoppingListPage = React.createClass({
           value="+"
           onClick = {this.saveSectionState}>
         </button>
+=======
+  			id: "",
+  			storeSection: "",
+  			items: []
+  	};
+  	
+  		newSection.storeSection = newSectionName;
+
+  		newStore.sections.push(newSection);
+  		newSectionName = '';
+  		document.getElementById("sectionId").value=null;
+  		ShoppingActionCreator.updateStore(newStore);
+	},
+
+  	render: function() {
+    	return (
+
+		<div className="container">
+		<h2>{this.state.store.storeName}</h2>
+		<h2>{this.state.name}</h2>
+		<h2>{this.state.value}</h2>
+
+		<input
+			id = "sectionId"
+			name={this.state.name}
+			placeholder="Add Section"
+			value={this.state.value}
+			onChange={this.saveTextState}
+		/>
+
+		<button className="btn btn-primary btn-xs glyphicon glyphicon-plus" 
+			value="+"
+			onClick = {this.saveSectionState}>
+		</button>
+>>>>>>> will-backup
 
         <button className="btn btn-primary btn-sm pull-right" to="/choose-store">
-        Move Checked &nbsp;
-        <span className="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+        	Move Checked &nbsp;
+        	<span className="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
         </button>
 
         <button className="btn btn-primary btn-sm pull-right">
-        Delete Checked &nbsp;
-        <span className="glyphicon glyphicon-trash" aria-hidden="true"></span>
+        	Delete Checked &nbsp;
+        	<span className="glyphicon glyphicon-trash" aria-hidden="true"></span>
         </button>
 
         <SectionList
-        store={this.state.store}
+        	store={this.state.store}
         />
 
         </div>
