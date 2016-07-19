@@ -6,6 +6,7 @@ var Link = require('react-router').Link;
 var ShoppingActionCreator = require('../../actions/shoppingActionCreator');
 var ItemList = require('./ItemList');
 var newItemName = "";
+var toastr = require("toastr");
 
 var SectionList = React.createClass({
 
@@ -17,6 +18,12 @@ var SectionList = React.createClass({
   },
 
   saveItem: function (index, event) {
+    event.preventDefault();
+
+    if(!this.itemIsValid(index)) {
+      return;
+    }
+
     var newStore = Object.assign({}, this.props.store);
 
     var newItem = {
@@ -26,14 +33,25 @@ var SectionList = React.createClass({
 
     newStore.sections[index].items.push(newItem);
 
-    //this is something we could put in another 
-    //function below.
     newItemName= "";
-    //is using the undex ok with the id?
 
     document.getElementById(index).value=null;
 
     ShoppingActionCreator.updateStore(newStore);
+    toastr.success('Item Created');
+  },
+
+  itemIsValid: function (index) {
+    var itemInputIsValid = true;
+    var newItemErrors = {};
+
+    if (newItemName <= 1) {
+      itemInputIsValid = false;
+      console.log("Item Be Longer than 1 char")
+      toastr.error('Item Name to short!');
+    };
+
+    return itemInputIsValid;
   },
 
 
