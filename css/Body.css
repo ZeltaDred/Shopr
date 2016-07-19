@@ -1,4 +1,6 @@
-
+.inline {
+  display: inline-flex;
+}
 
 ul {
 	display:inline;
