@@ -66,6 +66,7 @@ var ShoppingListPage = React.createClass({
     return (
 
       <div className="container">
+
         <span className="inline"> 
 
           <h1>{this.state.store.storeName}</h1>
