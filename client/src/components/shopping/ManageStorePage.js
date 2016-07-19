@@ -8,6 +8,7 @@ var ShoppingActionCreator = require('../../actions/shoppingActionCreator');
 
 var ManageStorePage = React.createClass({
 	getInitialState: function() {
+		
 		return {
 			errors: {},
 			store: {

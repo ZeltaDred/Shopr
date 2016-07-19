@@ -64,6 +64,8 @@ var ShoppingListPage = React.createClass({
 },
 
   render: function() {
+  	console.log(this.state.store);
+  	console.log("in render")
     return (
 
           <div className="container">

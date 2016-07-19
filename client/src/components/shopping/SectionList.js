@@ -13,16 +13,17 @@ var SectionList = React.createClass({
   saveTextState: function (event) {
     newItemName = "";
     newItemName = event.target.value;
+    console.log(event.target.value);
 
   },
 
   saveItem: function (index, event) {
     var newStore = Object.assign({}, this.props.store);
     
-    var newItem = [{
+    var newItem = {
       id: index,
       itemName: newItemName
-    }];
+    };
     
     newStore.sections[index].items.push(newItem);
     ShoppingActionCreator.updateStore(newStore);
@@ -31,9 +32,6 @@ var SectionList = React.createClass({
 
 
   render: function() {
-
-
-
     var listSections = function(section, index) {
       return (
       <div className="container" key={section.storeSection}>
@@ -42,6 +40,7 @@ var SectionList = React.createClass({
 
               <input
                 placeholder="Add Item"
+                type="text"
                 value={this.props.value}
                 onChange={this.saveTextState}
               />
