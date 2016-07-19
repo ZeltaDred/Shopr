@@ -47,6 +47,12 @@ var ShoppingListPage = React.createClass({
   	},
 
 	saveSectionState: function (event) {
+		event.preventDefault();
+
+		if(!this.sectionIsValid()) {
+			return;
+		}
+
 		var newStore = Object.assign({}, this.state.store);
   		var newSection = {
   			id: "",
@@ -60,6 +66,19 @@ var ShoppingListPage = React.createClass({
   		newSectionName = '';
   		document.getElementById("sectionId").value=null;
   		ShoppingActionCreator.updateStore(newStore);
+	},
+
+	sectionIsValid: function () {
+		var sectionInputIsValid = true;
+		var newErrors = {};
+
+		if (newSectionName <= 1) {
+			sectionInputIsValid = false;
+			console.log("Must Be Longer than 1 char")
+		};
+
+		return sectionInputIsValid;
+
 	},
 
   	render: function() {

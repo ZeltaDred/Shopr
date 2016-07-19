@@ -17,6 +17,12 @@ var SectionList = React.createClass({
   },
 
   saveItem: function (index, event) {
+    event.preventDefault();
+
+    if(!this.itemIsValid(index)) {
+      return;
+    }
+
     var newStore = Object.assign({}, this.props.store);
     
     var newItem = {
@@ -34,6 +40,18 @@ var SectionList = React.createClass({
     document.getElementById(index).value=null;
 
     ShoppingActionCreator.updateStore(newStore);
+  },
+
+  itemIsValid: function (index) {
+    var itemInputIsValid = true;
+    var newItemErrors = {};
+
+    if (newItemName <= 1) {
+      itemInputIsValid = false;
+      console.log("Item Be Longer than 1 char")
+    };
+
+    return itemInputIsValid;
   },
 
 
