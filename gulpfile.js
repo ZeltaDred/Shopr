@@ -18,6 +18,7 @@ var config = {
 		],
 		mainjs: './client/src/main.js',
 		images: './client/src/images/*',
+		favicon: './client/src/favicon.ico',
 		css: [
 			'node_modules/bootstrap/dist/css/bootstrap.min.css',
 			'node_modules/bootstrap/dist/bootstrap-theme.min.css',
@@ -70,7 +71,10 @@ gulp.task('fonts', function() {
 gulp.task('images', function() {
 	gulp.src(config.paths.images)
 		.pipe(gulp.dest(config.paths.dist + '/images'))
-		.pipe(connect.reload);
+		.pipe(connect.reload());
+	gulp.src(config.paths.favicon)
+		.pipe(gulp.dest(config.paths.dist ))
+		.pipe(connect.reload());
 });
 
 gulp.task('js', function() {
@@ -89,4 +93,4 @@ gulp.task('watch', function() {
 });
 
 //gulp.task('default', ['html', 'css', 'js', 'images', 'open', 'watch']);
-gulp.task('default', ['html', 'css', 'fonts', 'js', 'watch']);
+gulp.task('default', ['html', 'css', 'fonts', 'images', 'js', 'watch']);

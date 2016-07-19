@@ -35,6 +35,10 @@ app.use(skipper())
 app.use('/shopping', require('./server/shopping/routes'))
 app.use('/users', require('./server/user/routes'))
 
+app.get('/favicon.ico', function (req,res){
+	res.sendFile(path.join(__dirname, '/dist/favicon.ico'))
+	})
+
 app.get('*', function (req, res)
 {
 	res.sendFile(path.join(__dirname, '/dist/index.html'))
