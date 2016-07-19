@@ -7,6 +7,7 @@ var SectionList = require('./SectionList');
 var ShoppingStore = require('../../stores/shoppingStore');
 var _ = require('lodash');
 var ShoppingActionCreator = require('../../actions/shoppingActionCreator');
+var toastr = require('toastr');
 
 
 var newSectionName = "";
@@ -46,6 +47,11 @@ var ShoppingListPage = React.createClass({
   },
 
   saveSectionState: function (event) {
+  	event.preventDefault();
+  	if(!this.sectionIsValid()) {
+      return;
+    }
+
     var newStore = Object.assign({}, this.state.store);
     var newSection = {
       id: "",
@@ -59,6 +65,19 @@ var ShoppingListPage = React.createClass({
     newSectionName = '';
     document.getElementById("sectionId").value=null;
     ShoppingActionCreator.updateStore(newStore);
+    toastr.success('Section Created!');
+  },
+
+  sectionIsValid: function () {
+    var sectionInputIsValid = true;
+
+    if (newSectionName <= 1) {
+      sectionInputIsValid = false;
+      console.log("Item Be Longer than 1 char")
+      toastr.error('Section Name to short!');
+    };
+
+    return sectionInputIsValid;
   },
 
   render: function() {
