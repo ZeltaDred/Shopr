@@ -26,6 +26,13 @@ var SectionList = React.createClass({
 
     newStore.sections[index].items.push(newItem);
 
+    //this is something we could put in another 
+    //function below.
+    newItemName= "";
+    //is using the undex ok with the id?
+
+    document.getElementById(index).value=null;
+
     ShoppingActionCreator.updateStore(newStore);
   },
 
@@ -38,6 +45,7 @@ var SectionList = React.createClass({
           {section.storeSection}
 
               <input
+                id = {index}
                 placeholder="Add Item"
                 type="text"
                 value={this.props.value}

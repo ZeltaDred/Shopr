@@ -49,49 +49,51 @@ var ShoppingListPage = React.createClass({
 	saveSectionState: function (event) {
 		var newStore = Object.assign({}, this.state.store);
   		var newSection = {
-  		id: "",
-  		storeSection: "",
-  		items: []
+  			id: "",
+  			storeSection: "",
+  			items: []
   	};
   	
-  	newSection.storeSection = newSectionName;
+  		newSection.storeSection = newSectionName;
 
-  	newStore.sections.push(newSection);
-  	ShoppingActionCreator.updateStore(newStore);
-},
+  		newStore.sections.push(newSection);
+  		document.getElementById("sectionId").value=null;
+  		ShoppingActionCreator.updateStore(newStore);
+	},
 
-  render: function() {
-    return (
+  	render: function() {
+    	return (
 
-          <div className="container">
-          <h2>{this.state.store.storeName}</h2>
-          <h2>{this.state.name}</h2>
-          <h2>{this.state.value}</h2>
+		<div className="container">
+		<h2>{this.state.store.storeName}</h2>
+		<h2>{this.state.name}</h2>
+		<h2>{this.state.value}</h2>
 
-          <input
-          name={this.state.name}
-          placeholder="Add Section"
-          value={this.state.value}
-          onChange={this.saveTextState}
-          />
+		<input
+			id = "sectionId"
+			name={this.state.name}
+			placeholder="Add Section"
+			value={this.state.value}
+			onChange={this.saveTextState}
+		/>
 
-          <button className="btn btn-primary btn-xs glyphicon glyphicon-plus" 
-          value="+"
-          onClick = {this.saveSectionState}>
-          </button>
+		<button className="btn btn-primary btn-xs glyphicon glyphicon-plus" 
+			value="+"
+			onClick = {this.saveSectionState}>
+		</button>
 
         <button className="btn btn-primary btn-sm pull-right" to="/choose-store">
-        Move Checked &nbsp;
-        <span className="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+        	Move Checked &nbsp;
+        	<span className="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
         </button>
 
         <button className="btn btn-primary btn-sm pull-right">
-        Delete Checked &nbsp;
-        <span className="glyphicon glyphicon-trash" aria-hidden="true"></span>
+        	Delete Checked &nbsp;
+        	<span className="glyphicon glyphicon-trash" aria-hidden="true"></span>
         </button>
 
         <SectionList
-        store={this.state.store}
+        	store={this.state.store}
         />
 
         </div>
