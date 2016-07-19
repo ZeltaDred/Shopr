@@ -57,6 +57,7 @@ var ShoppingListPage = React.createClass({
   		newSection.storeSection = newSectionName;
 
   		newStore.sections.push(newSection);
+  		newSectionName = '';
   		document.getElementById("sectionId").value=null;
   		ShoppingActionCreator.updateStore(newStore);
 	},
