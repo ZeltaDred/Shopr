@@ -18,7 +18,6 @@ var ItemList = React.createClass({
     var listItems = function(item, index) {
       return (
         <div key={index}>
-
             <h4>
               {Spacer}{item.itemName}
               <input

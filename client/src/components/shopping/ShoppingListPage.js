@@ -80,6 +80,35 @@ var ShoppingListPage = React.createClass({
     return sectionInputIsValid;
   },
 
+  deleteSelectedItems: function () {
+    //console.log(this.state.store.sections);
+    var newStore = Object.assign({}, this.state.store);
+    var trashArray = [];
+    var keepArray = [];
+
+    for(var i = 0; i < newStore.sections.length; i++) {
+      for(var j = 0; j < newStore.sections[i].items.length; j++){
+        if(newStore.sections[i].items[j].selected === true) {
+          trashArray.push(newStore.sections[i].items[j]);
+        }else {
+          keepArray.push(newStore.sections[i].items[j]);
+        }
+      }
+    }
+    for(var i = 0; i < trashArray.length; i++) {
+      for(var j = 0; j < newStore.sections.length; j++) {
+        for (var k = 0; k < newStore.sections[j].items.length; k++) {
+          if(trashArray[i] === newStore.sections[j].items[k]) {
+            newStore.sections[j].items.splice(k, 1);
+          }
+        }
+      }
+    }
+
+    ShoppingActionCreator.updateStore(newStore);
+    toastr.success(trashArray.length + " Item(s) Deleted");
+  },
+
   render: function() {
     return (
 
@@ -112,7 +141,9 @@ var ShoppingListPage = React.createClass({
         <span className="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
       </button>
 
-      <button className="btn btn-primary btn-lg pull-right">
+      <button className="btn btn-primary btn-lg pull-right"
+        onClick = {this.deleteSelectedItems}
+        >
         Delete Checked &nbsp;
         <span className="glyphicon glyphicon-trash" aria-hidden="true"></span>
       </button>
