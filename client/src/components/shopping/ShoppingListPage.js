@@ -9,7 +9,6 @@ var _ = require('lodash');
 var ShoppingActionCreator = require('../../actions/shoppingActionCreator');
 var toastr = require('toastr');
 
-
 var newSectionName = "";
 var storeId;
 
@@ -70,8 +69,8 @@ var ShoppingListPage = React.createClass({
 
   sectionIsValid: function () {
     var sectionInputIsValid = true;
-
-    if (newSectionName <= 1) {
+    newSectionName = newSectionName.replace(/\s/g,'');
+    if (newSectionName.length <= 2) {
       sectionInputIsValid = false;
       console.log("Item Be Longer than 1 char")
       toastr.error('Section Name to short!');
