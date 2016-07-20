@@ -43,9 +43,8 @@ var SectionList = React.createClass({
 
   itemIsValid: function (index) {
     var itemInputIsValid = true;
-    var newItemErrors = {};
-
-    if (newItemName <= 1) {
+    newItemName = newItemName.replace(/\s/g,'');
+    if (newItemName.length <= 2) {
       itemInputIsValid = false;
       console.log("Item Be Longer than 1 char")
       toastr.error('Item Name to short!');
@@ -54,12 +53,30 @@ var SectionList = React.createClass({
     return itemInputIsValid;
   },
 
+  deleteSection: function (index) {
+    var deletedSection = "";
+    
+    var newStore = Object.assign({}, this.props.store);
+    deletedSection = (newStore.sections[index].storeSection);
+    newStore.sections.splice(index, 1);
+    ShoppingActionCreator.updateStore(newStore);
+    toastr.success(deletedSection +  " section Deleted")
+
+  },
+
 
   render: function() {
     var listSections = function(section, index) {
       return (
         <div className="container" key={section.storeSection}>
           <div>
+          <button className="btn btn-primary btn-xs pull-left"
+              style={{marginRight: "0.3%"}}
+              onClick = {this.deleteSection.bind(this, index)}
+              >
+
+              <span className="glyphicon glyphicon-trash" aria-hidden="true"></span>
+            </button>
             <h2>{section.storeSection}
             <button className="btn btn-primary btn-sm pull-right"
               onClick={this.saveItem.bind(this, index)}
