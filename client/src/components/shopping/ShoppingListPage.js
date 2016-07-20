@@ -118,10 +118,11 @@ var ShoppingListPage = React.createClass({
 
           <h1>{this.state.store.storeName}</h1>
 
-          <h2>
+          <h3>
             <input
               id = "sectionId"
               name={this.state.name}
+              style={{marginTop: 10, marginLeft: 10}}
               placeholder="Add Section"
               value={this.state.value}
               onChange={this.saveTextState}
@@ -132,7 +133,7 @@ var ShoppingListPage = React.createClass({
             onClick = {this.saveSectionState}>
           </button>
 
-        </h2>
+        </h3>
 
       </span>
 
