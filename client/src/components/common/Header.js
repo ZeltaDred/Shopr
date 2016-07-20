@@ -9,10 +9,12 @@ var Header = React.createClass({
 	render: function() {
 		return(
 			<Navbar inverse>
-			        <a><img src='../../images/ShoppingCart.png' height='50' width='50'/></a> 
 				<Navbar.Header>
 					<Navbar.Brand>
-						<Link to="/">Shopr</Link>
+                      <Link to="/">
+                        Shopr
+			        <a><img src='../../images/ShoppingCart.png' height='35' width='40'/></a> 
+                      </Link>
 					</Navbar.Brand>
 					<Navbar.Toggle />
 
