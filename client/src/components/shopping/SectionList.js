@@ -53,6 +53,17 @@ var SectionList = React.createClass({
     return itemInputIsValid;
   },
 
+  deleteSection: function (index) {
+    var deletedSection = "";
+    
+    var newStore = Object.assign({}, this.props.store);
+    deletedSection = (newStore.sections[index].storeSection);
+    newStore.sections.splice(index, 1);
+    ShoppingActionCreator.updateStore(newStore);
+    toastr.success(deletedSection +  " section Deleted")
+
+  },
+
 
   render: function() {
     var listSections = function(section, index) {
@@ -60,7 +71,10 @@ var SectionList = React.createClass({
         <div className="container" key={section.storeSection}>
           <div>
           <button className="btn btn-primary btn-xs pull-left"
-              style={{marginRight: "0.3%"}}>
+              style={{marginRight: "0.3%"}}
+              onClick = {this.deleteSection.bind(this, index)}
+              >
+
               <span className="glyphicon glyphicon-trash" aria-hidden="true"></span>
             </button>
             <h2>{section.storeSection}
