@@ -77,8 +77,7 @@ var SectionList = React.createClass({
             />
           </h2>
         </div>
-
-
+        
           <ItemList
             section={section}
             store={this.props.store}
