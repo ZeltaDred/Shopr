@@ -127,7 +127,7 @@ var ShoppingListPage = React.createClass({
               onChange={this.saveTextState}
             />
 
-          <button className="btn btn-primary btn-lg glyphicon glyphicon-plus" 
+          <button className="btn btn-primary btn-lg glyphicon glyphicon-plus" style={{marginLeft: 5}}
             value="+"
             onClick = {this.saveSectionState}>
           </button>
@@ -136,12 +136,12 @@ var ShoppingListPage = React.createClass({
 
       </span>
 
-      <button className="btn btn-primary btn-lg pull-right" to="/choose-store">
+      <button className="btn btn-primary btn-lg pull-right" style={{marginTop: 30, marginLeft: 5}} to="/choose-store">
         Move Checked &nbsp;
         <span className="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
       </button>
 
-      <button className="btn btn-primary btn-lg pull-right"
+      <button className="btn btn-primary btn-lg pull-right" style={{marginTop: 30}} 
         onClick = {this.deleteSelectedItems}
         >
         Delete Checked &nbsp;
