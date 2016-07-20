@@ -26,7 +26,7 @@ var StoreForm = React.createClass({
 					<span className="glyphicon glyphicon-save" aria-hidden="true"></span>
 				</button>
 
-        <button className="btn btn-primary btn-sm" value="create and view list"
+        <button className="btn btn-primary btn-sm" value="create and view list" style={{marginLeft: 5}}
 					onClick={this.props.saveStore}>
 					Create List &nbsp;
 					<span className="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
