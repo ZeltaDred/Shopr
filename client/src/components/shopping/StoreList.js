@@ -51,9 +51,9 @@ var StoreList = React.createClass({
 
     return(
       <table className="table">
-        <thead>
+        <thead style={{"font-size": "1.5em"}}>
           <tr>
-            <th> </th>
+            <th>Stores</th>
             <th>Items</th>
             <th>List</th>
             <th>Delete Store</th>
