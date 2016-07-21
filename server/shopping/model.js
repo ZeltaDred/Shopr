@@ -10,7 +10,9 @@ var StoreSchema = new mongoose.Schema({
       items:[
         {
           itemName: { type: String },
+          description: { type: String },
           selected: { type: Boolean , default: false }
+          
         }
       ]
     }

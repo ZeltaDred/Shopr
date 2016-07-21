@@ -69,7 +69,7 @@ var ShoppingListPage = React.createClass({
 
   sectionIsValid: function () {
     var sectionInputIsValid = true;
-    newSectionName = newSectionName.replace(/\s/g,'');
+    newSectionName = newSectionName.trim();
     if (newSectionName.length <= 2) {
       sectionInputIsValid = false;
       console.log("Item Be Longer than 1 char")
