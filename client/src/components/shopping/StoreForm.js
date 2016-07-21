@@ -14,19 +14,19 @@ var StoreForm = React.createClass({
 		return (
 			<form>
 				<TextInput
-					name="storeName"
+					name=" "
 					placeholder="Store Name"
 					value={this.props.store.storeName}
 					saveStoreState={this.props.saveStoreState}
 					error={this.props.errors.storeName}
 				/>
-        <button className="btn btn-primary btn-sm" to="/"
+        <button className="btn btn-primary btn-xsm" to="/"
           onClick={this.props.saveStore} value="save">
 					Save Store &nbsp;
 					<span className="glyphicon glyphicon-save" aria-hidden="true"></span>
 				</button>
 
-        <button className="btn btn-primary btn-sm" value="create and view list" style={{marginLeft: 5}}
+        <button className="btn btn-primary btn-xsm" value="create and view list" style={{marginLeft: 5}}
 					onClick={this.props.saveStore}>
 					Create List &nbsp;
 					<span className="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
