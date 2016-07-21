@@ -4,7 +4,8 @@ var React = require('react');
 var ShoppingActionCreator = require('../../actions/shoppingActionCreator');
 var Space = ' ';
 var Spacer = ' - ';
-var newDescriptionName;
+var newDescriptionName = "";
+
 
 var ItemList = React.createClass({
   changeSelected: function (item, event) {
@@ -21,7 +22,6 @@ var ItemList = React.createClass({
 
   saveDescription: function (index, event) {
     event.preventDefault();
-    //console.log(this.props.items)
     var newStore = Object.assign({}, this.props.store);
 
     var newItem = {
@@ -31,14 +31,9 @@ var ItemList = React.createClass({
     };
 
     newStore.sections[this.props.sectionIndex].items[index] = newItem;
-    console.log(newStore);
-
     newDescriptionName= "";
-
-    document.getElementById(index).value=null;
-
     ShoppingActionCreator.updateStore(newStore);
-    console.log("updated");
+    event.target.value = "";
   },
 
   descriptionIsValid: function () {
@@ -59,13 +54,13 @@ var ItemList = React.createClass({
               {item.itemName}
             {Spacer}{Space}{Space}{Space}{Space}
               <input
-                id = {index}
+                name = "Input-name"
                 type="text"
                 onChange= {this.saveInputText}
                 onBlur={this.saveDescription.bind(this, index)}
-                className="input-fly"
-                value={this.props.value}
-                placeholder = "Add/Edit desc"
+                //className="input-fly"
+                value={this.value}
+                placeholder = "Add/Edit descrip"
                 style={{border: "none", background: "transparent", 
                 color: "#000", width: "20%", fontSize: ".8em", 
                 fontWeight:"normal", fontStyle: "italic"}}>
