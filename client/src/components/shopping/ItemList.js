@@ -86,7 +86,6 @@ var ItemList = React.createClass({
             <td>
               <input
                 type="checkbox"
-                className="pull-right"
                 checked={item.selected}
                 onChange={this.changeSelected.bind(this, item)}
                 name="items"
@@ -99,8 +98,8 @@ var ItemList = React.createClass({
     };
 
     return ( 
-      <table className="table">
-        <thead>
+      <table className="table" style={{"table-layout": "fixed"}}>
+        <thead style={{"font-size": "1.5em"}}>
           <tr>
             <th>Item</th>
             <th>Description</th>

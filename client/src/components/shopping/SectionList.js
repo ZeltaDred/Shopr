@@ -72,14 +72,14 @@ var SectionList = React.createClass({
       return (
         <div className="container" key={section.storeSection}>
           <div>
-          <button className="btn btn-primary btn-xsm pull-left"
+            <h2 style={{color: "#ffffff"}}>{section.storeSection}
+          <button className="btn btn-primary btn-xsm"
               style={{marginRight: "4%"}}
-              onClick = {this.deleteSection.bind(this, index)}
-              >
+              onClick={this.deleteSection.bind(this, index)}>
 
               <span className="glyphicon glyphicon-trash" aria-hidden="true"></span>
             </button>
-            <h2>{section.storeSection}
+
             <button className="btn btn-primary btn-xsm pull-right"
               onClick={this.saveItem.bind(this, index)}
               value="+">
@@ -110,12 +110,7 @@ var SectionList = React.createClass({
     };
 
     return (
-      <div>
-
-        <ul>{this.props.store.sections.map(listSections, this)}</ul>
-
-
-      </div>
+        <tr style={{"background-color": "#039BE5"}}>{this.props.store.sections.map(listSections, this)}</tr>
     );
   }
 });
