@@ -93,7 +93,6 @@ var ItemList = React.createClass({
     };
 
     return ( 
-
       <table className="table" style={{"table-layout": "fixed"}}>
         <thead style={{"font-size": "1.5em"}}>
           <tr>
