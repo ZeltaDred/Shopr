@@ -4,8 +4,7 @@ var React = require('react');
 var ShoppingActionCreator = require('../../actions/shoppingActionCreator');
 var Space = ' ';
 var Spacer = ' - ';
-var newDescriptionName = "";
-
+var newDescriptionName;
 
 var ItemList = React.createClass({
   changeSelected: function (item, event) {
@@ -22,6 +21,7 @@ var ItemList = React.createClass({
 
   saveDescription: function (index, event) {
     event.preventDefault();
+    //console.log(this.props.items)
     var newStore = Object.assign({}, this.props.store);
 
     var newItem = {
@@ -31,9 +31,14 @@ var ItemList = React.createClass({
     };
 
     newStore.sections[this.props.sectionIndex].items[index] = newItem;
+    console.log(newStore);
+
     newDescriptionName= "";
+
+    document.getElementById(index).value=null;
+
     ShoppingActionCreator.updateStore(newStore);
-    event.target.value = "";
+    console.log("updated");
   },
 
   descriptionIsValid: function () {
@@ -47,29 +52,38 @@ var ItemList = React.createClass({
       var fontStyle = "font-style";
       var listStyleType = "list-style-type";
       return (
-        <li key={index}
+        <tr key={index}
           style={{listStyleType: "upper-roman", fontSize: "1.2em"}}>
-            <h4>
 
+          <td>
               {item.itemName}
-            {Spacer}{Space}{Space}{Space}{Space}
+          </td>
+
+            <td>
+              <span 
+              style={{fontStyle: "italic", fontSize: ".8em"}}>
+              {Space}{Space}{item.description}
+              </span>
+            </td>
+
+          <td>
+
               <input
-                name = "Input-name"
+                id = {index}
                 type="text"
                 onChange= {this.saveInputText}
                 onBlur={this.saveDescription.bind(this, index)}
-                //className="input-fly"
-                value={this.value}
-                placeholder = "Add/Edit descrip"
+                className="input-fly"
+                value={this.props.value}
+                placeholder = "Add/Edit desc"
                 style={{border: "none", background: "transparent", 
                 color: "#000", width: "20%", fontSize: ".8em", 
                 fontWeight:"normal", fontStyle: "italic"}}>
               </input>
-              <span 
-              style={{fontStyle: "italic", fontSize: ".8em"}}
-              >
-              {Space}{Space}{item.description}
-              </span>
+
+            </td>
+
+            <td>
               <input
                 type="checkbox"
                 className="pull-right"
@@ -78,14 +92,27 @@ var ItemList = React.createClass({
                 name="items"
                 value={item._id}
               />
-            </h4>
-        </li>
+            </td>
+          </tr>
       );
 
     };
 
-    return (
-        <ul>{this.props.section.items.map(listItems, this)}</ul>
+    return ( 
+      <table className="table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Description</th>
+            <th>Edit</th>
+            <th>Checkbox</th>
+          </tr>
+        </thead>
+        <tbody>
+        {this.props.section.items.map(listItems, this)}
+        </tbody>
+      </table>
+
     );
 
   }
