@@ -94,7 +94,7 @@ var SectionList = React.createClass({
 
             <input
               id = {index}
-              style={{width: "12em"}}
+              style={{width: "12em", "color": "#333"}}
               placeholder="Add Item"
               type="text"
               className="pull-right"
