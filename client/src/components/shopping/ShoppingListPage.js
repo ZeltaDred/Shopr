@@ -125,6 +125,7 @@ var ShoppingListPage = React.createClass({
               placeholder="Add Section"
               value={this.state.value}
               onChange={this.saveTextState}
+              onBlur= {this.saveSectionState}
             />
 
           <button className="btn btn-primary btn-xsm glyphicon glyphicon-plus" style={{marginLeft: 5}}

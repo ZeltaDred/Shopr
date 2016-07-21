@@ -4,7 +4,7 @@ var React = require('react');
 var ShoppingActionCreator = require('../../actions/shoppingActionCreator');
 var Space = ' ';
 var Spacer = ' - ';
-var newDescriptionName;
+var newDescriptionName= "";
 
 var ItemList = React.createClass({
   changeSelected: function (item, event) {
@@ -21,7 +21,6 @@ var ItemList = React.createClass({
 
   saveDescription: function (index, event) {
     event.preventDefault();
-    //console.log(this.props.items)
     var newStore = Object.assign({}, this.props.store);
 
     var newItem = {
@@ -31,14 +30,10 @@ var ItemList = React.createClass({
     };
 
     newStore.sections[this.props.sectionIndex].items[index] = newItem;
-    console.log(newStore);
 
     newDescriptionName= "";
-
-    document.getElementById(index).value=null;
-
     ShoppingActionCreator.updateStore(newStore);
-    console.log("updated");
+    event.target.value = "";
   },
 
   descriptionIsValid: function () {
@@ -99,7 +94,8 @@ var ItemList = React.createClass({
     };
 
     return ( 
-      <table className="table">
+      <table className="table"
+        style={{overflow: "auto"}}>
         <thead>
           <tr>
             <th>Item</th>

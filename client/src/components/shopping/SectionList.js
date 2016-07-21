@@ -17,9 +17,11 @@ var SectionList = React.createClass({
 
   },
 
+
+
   saveItem: function (index, event) {
     event.preventDefault();
-
+    console.log('key pressed', event.which);
     if(!this.itemIsValid(index)) {
       return;
     }
@@ -46,11 +48,15 @@ var SectionList = React.createClass({
   itemIsValid: function (index) {
     var itemInputIsValid = true;
     newItemName = newItemName.trim();
-    if (newItemName.length <= 2) {
+    if (newItemName.length <= 1) {
       itemInputIsValid = false;
       console.log("Item Be Longer than 1 char")
       toastr.error('Item Name to short!');
-    };
+    } else if (newItemName.length > 15) {
+      itemInputIsValid = false;
+      console.log("Item Name is to long")
+      toastr.error('Item Name is to long!');
+    }
 
     return itemInputIsValid;
   },
@@ -93,7 +99,10 @@ var SectionList = React.createClass({
               type="text"
               className="pull-right"
               value={this.props.value}
+              onBlur={this.saveItem.bind(this, index)}
               onChange={this.saveTextState}
+              //onKeyPress= {this.saveItem.bind(this, index)}
+
             />
           </h2>
         </div>
