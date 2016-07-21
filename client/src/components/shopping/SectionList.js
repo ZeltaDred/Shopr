@@ -17,9 +17,11 @@ var SectionList = React.createClass({
 
   },
 
+
+
   saveItem: function (index, event) {
     event.preventDefault();
-
+    console.log('key pressed', event.which);
     if(!this.itemIsValid(index)) {
       return;
     }
@@ -43,22 +45,34 @@ var SectionList = React.createClass({
     console.log(this.props.store.sections);
   },
 
+  saveItemWithBlur: function (index, event) {
+    event.preventDefault();
+    if (newItemName.length < 1){
+      return
+    }
+    this.saveItem(index, event);
+  },
+
   itemIsValid: function (index) {
     var itemInputIsValid = true;
     newItemName = newItemName.trim();
-    if (newItemName.length <= 2) {
+    if (newItemName.length <= 1) {
       itemInputIsValid = false;
       console.log("Item Be Longer than 1 char")
       toastr.error('Item Name to short!');
-    };
+    } else if (newItemName.length > 15) {
+      itemInputIsValid = false;
+      console.log("Item Name is to long")
+      toastr.error('Item Name is to long!');
+    }
 
     return itemInputIsValid;
   },
 
   deleteSection: function (index) {
     var deletedSection = "";
-    
     var newStore = Object.assign({}, this.props.store);
+
     deletedSection = (newStore.sections[index].storeSection);
     newStore.sections.splice(index, 1);
     ShoppingActionCreator.updateStore(newStore);
@@ -81,7 +95,7 @@ var SectionList = React.createClass({
             </button>
 
             <button className="btn btn-primary btn-xsm pull-right"
-              onClick={this.saveItem.bind(this, index)}
+              //onClick={this.saveItem.bind(this, index)}
               value="+">
               <span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
@@ -93,7 +107,10 @@ var SectionList = React.createClass({
               type="text"
               className="pull-right"
               value={this.props.value}
+              onBlur={this.saveItemWithBlur.bind(this, index)}
               onChange={this.saveTextState}
+              //onKeyPress= {this.saveItem.bind(this, index)}
+
             />
           </h2>
         </div>
@@ -110,7 +127,7 @@ var SectionList = React.createClass({
     };
 
     return (
-        <tr style={{"background-color": "#039BE5"}}>{this.props.store.sections.map(listSections, this)}</tr>
+        <tr className="container" style={{"background-color": "#039BE5"}}>{this.props.store.sections.map(listSections, this)}</tr>
     );
   }
 });
