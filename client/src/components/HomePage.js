@@ -30,11 +30,11 @@ var Stores = React.createClass({
 
 		return(
 			<div>
-				<h2>Stores</h2>
-				<Link className="btn btn-primary btn-sm" to="/manage-store">
+				<h2>Stores      
+				<Link className="btn btn-primary btn-xsm" to="/manage-store" >
 					Add Store &nbsp;
 					<span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
-				</Link>
+				</Link> </h2> 
 				<StoreList
 					stores={this.state.stores}
 				/>

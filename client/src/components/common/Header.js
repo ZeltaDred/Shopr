@@ -12,8 +12,8 @@ var Header = React.createClass({
 				<Navbar.Header>
 					<Navbar.Brand>
                       <Link to="/">
-                        Shopr
-			        <a><img src='../../images/ShoppingCart.png' height='35' width='40'/></a> 
+                        ShopR
+			        <a><img src='../../images/ShoppingCart.png' height='25' width='30'/></a> 
                       </Link>
 					</Navbar.Brand>
 					<Navbar.Toggle />
