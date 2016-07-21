@@ -28,7 +28,8 @@ var SectionList = React.createClass({
 
     var newItem = {
       id: index,
-      itemName: newItemName
+      itemName: newItemName,
+      description: "This is a description"
     };
 
     newStore.sections[index].items.push(newItem);
@@ -39,11 +40,12 @@ var SectionList = React.createClass({
 
     ShoppingActionCreator.updateStore(newStore);
     toastr.success('Item Created');
+    console.log(this.props.store.sections);
   },
 
   itemIsValid: function (index) {
     var itemInputIsValid = true;
-    newItemName = newItemName.replace(/\s/g,'');
+    newItemName = newItemName.trim();
     if (newItemName.length <= 2) {
       itemInputIsValid = false;
       console.log("Item Be Longer than 1 char")
