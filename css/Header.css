@@ -1,6 +1,6 @@
 .navbar {
-  background-color: 	#0099cc;
-  border-color: #0099cc;
+  background-color: 	#0091EA;
+  border-color: #0091EA;
   font-size: 22px;
   color: #333;
 }
@@ -10,7 +10,23 @@
 }
 
 body {
-  background-color: #1ac6ff;
+  background-color: #B3E5FC;
+}
+
+.btn {
+	background-color: #0091EA;
+}
+
+th {
+    background-color: #4FC3F7;
+}
+
+tr:nth-child(odd) {
+    background-color: #80D8FF;
+}
+
+tr:nth-child(even) {
+    background-color: #4FC3F7;
 }
 
 .navbar-inverse .navbar-brand {
