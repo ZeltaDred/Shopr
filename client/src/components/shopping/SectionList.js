@@ -45,6 +45,14 @@ var SectionList = React.createClass({
     console.log(this.props.store.sections);
   },
 
+  saveItemWithBlur: function (index, event) {
+    event.preventDefault();
+    if (newItemName.length < 1){
+      return
+    }
+    this.saveItem(index, event);
+  },
+
   itemIsValid: function (index) {
     var itemInputIsValid = true;
     newItemName = newItemName.trim();
@@ -63,8 +71,8 @@ var SectionList = React.createClass({
 
   deleteSection: function (index) {
     var deletedSection = "";
-    
     var newStore = Object.assign({}, this.props.store);
+
     deletedSection = (newStore.sections[index].storeSection);
     newStore.sections.splice(index, 1);
     ShoppingActionCreator.updateStore(newStore);
@@ -87,7 +95,7 @@ var SectionList = React.createClass({
             </button>
 
             <button className="btn btn-primary btn-xsm pull-right"
-              onClick={this.saveItem.bind(this, index)}
+              //onClick={this.saveItem.bind(this, index)}
               value="+">
               <span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
@@ -99,7 +107,7 @@ var SectionList = React.createClass({
               type="text"
               className="pull-right"
               value={this.props.value}
-              onBlur={this.saveItem.bind(this, index)}
+              onBlur={this.saveItemWithBlur.bind(this, index)}
               onChange={this.saveTextState}
               //onKeyPress= {this.saveItem.bind(this, index)}
 
@@ -119,7 +127,7 @@ var SectionList = React.createClass({
     };
 
     return (
-        <tr style={{"background-color": "#039BE5"}}>{this.props.store.sections.map(listSections, this)}</tr>
+        <tr className="container" style={{"background-color": "#039BE5"}}>{this.props.store.sections.map(listSections, this)}</tr>
     );
   }
 });

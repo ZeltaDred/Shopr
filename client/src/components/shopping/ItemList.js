@@ -54,7 +54,7 @@ var ItemList = React.createClass({
               {item.itemName}
           </td>
 
-            <td>
+            <td style={{overflow: "hidden"}}>
               <span 
               style={{fontStyle: "italic", fontSize: ".8em"}}>
               {Space}{Space}{item.description}
@@ -70,10 +70,10 @@ var ItemList = React.createClass({
                 onBlur={this.saveDescription.bind(this, index)}
                 className="input-fly"
                 value={this.props.value}
-                placeholder = "Add/Edit desc"
-                style={{border: "none", background: "transparent", 
-                color: "#000", width: "20%", fontSize: ".8em", 
-                fontWeight:"normal", fontStyle: "italic"}}>
+                placeholder = "Add/Edit description"
+                style={{color: "#000", 
+                fontSize: ".8em", fontWeight:"normal", 
+                fontStyle: "italic"}}>
               </input>
 
             </td>
@@ -93,7 +93,7 @@ var ItemList = React.createClass({
     };
 
     return ( 
-      <table className="table" style={{"table-layout": "fixed"}}>
+      <table className="container" className="table" style={{"table-layout": "fixed"}}>
         <thead style={{"font-size": "1.5em"}}>
           <tr>
             <th>Item</th>
