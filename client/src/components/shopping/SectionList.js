@@ -72,15 +72,15 @@ var SectionList = React.createClass({
       return (
         <div className="container" key={section.storeSection}>
           <div>
-          <button className="btn btn-primary btn-xs pull-left"
-              style={{marginRight: "0.3%"}}
+          <button className="btn btn-primary btn-xsm pull-left"
+              style={{marginRight: "4%"}}
               onClick = {this.deleteSection.bind(this, index)}
               >
 
               <span className="glyphicon glyphicon-trash" aria-hidden="true"></span>
             </button>
             <h2>{section.storeSection}
-            <button className="btn btn-primary btn-sm pull-right"
+            <button className="btn btn-primary btn-xsm pull-right"
               onClick={this.saveItem.bind(this, index)}
               value="+">
               <span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -88,6 +88,7 @@ var SectionList = React.createClass({
 
             <input
               id = {index}
+              style={{width: "12em"}}
               placeholder="Add Item"
               type="text"
               className="pull-right"

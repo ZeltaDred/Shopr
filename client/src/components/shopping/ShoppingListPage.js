@@ -121,13 +121,13 @@ var ShoppingListPage = React.createClass({
             <input
               id = "sectionId"
               name={this.state.name}
-              style={{marginTop: 10, marginLeft: 10}}
+              style={{marginTop: 10, marginLeft: 10, width: 10+'em'}}
               placeholder="Add Section"
               value={this.state.value}
               onChange={this.saveTextState}
             />
 
-          <button className="btn btn-primary btn-lg glyphicon glyphicon-plus" style={{marginLeft: 5}}
+          <button className="btn btn-primary btn-xsm glyphicon glyphicon-plus" style={{marginLeft: 5}}
             value="+"
             onClick = {this.saveSectionState}>
           </button>
@@ -136,12 +136,12 @@ var ShoppingListPage = React.createClass({
 
       </span>
 
-      <button className="btn btn-primary btn-lg pull-right" style={{marginTop: 30, marginLeft: 5}} to="/choose-store">
+      <button className="btn btn-primary btn-xsm pull-right" style={{marginTop: 30, marginLeft: 5, width: 10+'em'}} to="/choose-store">
         Move Checked &nbsp;
         <span className="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
       </button>
 
-      <button className="btn btn-primary btn-lg pull-right" style={{marginTop: 30}} 
+      <button className="btn btn-primary btn-xsm pull-right" style={{marginTop: 30}} 
         onClick = {this.deleteSelectedItems}
         >
         Delete Checked &nbsp;

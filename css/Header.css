@@ -1,16 +1,16 @@
 .navbar {
-  background-color: #0084B4;
-  border-color: #0084B4;
+  background-color: 	#0099cc;
+  border-color: #0099cc;
   font-size: 22px;
   color: #333;
 }
 
 .btn-primary {
-  background-color: #0084B4;
+  background-color: #0099cc;
 }
 
 body {
-  background-color: #F5F8FA;
+  background-color: #1ac6ff;
 }
 
 .navbar-inverse .navbar-brand {

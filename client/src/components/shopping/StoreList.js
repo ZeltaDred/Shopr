@@ -28,18 +28,18 @@ var StoreList = React.createClass({
       return (
         <tr key = {store._id}>
           <td>
-            <Link style={LinkStyle} to={"/shopping-list/" + store._id}>
+            <Link style={LinkStyle} to={"/shopping-list/" + store._id} style={{"font-size": 30}}>
               {store.storeName}
             </Link>
           </td>
-          <td>{sumItems}</td>
+          <td style={{"font-size": 25}}>{sumItems}</td>
           <td>
-            <Link className="btn btn-primary btn-sm" to={"/shopping-list/" + store._id}>
+            <Link className="btn btn-primary btn-xsm" to={"/shopping-list/" + store._id}>
               <span className="glyphicon glyphicon-list-alt"></span>
             </Link>
           </td>
           <td>
-            <a href="#" className="btn btn-primary btn-sm" onClick={this
+            <a href="#" className="btn btn-primary btn-xsm" onClick={this
               .deleteStore
               .bind(this, store)}>
               <span className="glyphicon glyphicon-trash"></span>
@@ -53,7 +53,7 @@ var StoreList = React.createClass({
       <table className="table">
         <thead>
           <tr>
-            <th>Store</th>
+            <th> </th>
             <th>Items</th>
             <th>List</th>
             <th>Delete Store</th>
