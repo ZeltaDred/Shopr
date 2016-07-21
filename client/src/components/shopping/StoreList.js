@@ -19,7 +19,7 @@ var StoreList = React.createClass({
 
   render: function() {
 
-    var listStores = function(store) {
+    var listStores = function(store, index) {
       var sumItems = 0;
       for(var i = 0; i < store.sections.length; i++) {
         sumItems += store.sections[i].items.length;
