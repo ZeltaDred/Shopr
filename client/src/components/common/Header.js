@@ -11,10 +11,15 @@ var Header = React.createClass({
 			<Navbar inverse>
 				<Navbar.Header>
 					<Navbar.Brand>
-						<Link to="/">Shopr</Link>
+                      <Link to="/">
+                        Shopr
+			        <a><img src='../../images/ShoppingCart.png' height='35' width='40'/></a> 
+                      </Link>
 					</Navbar.Brand>
 					<Navbar.Toggle />
+
 				</Navbar.Header>
+
 				<Navbar.Collapse>
 					<ul className="nav navbar-nav navbar-right">
 						<li><Link to="/">Home</Link></li>

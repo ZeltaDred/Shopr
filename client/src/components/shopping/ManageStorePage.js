@@ -43,12 +43,12 @@ var ManageStorePage = React.createClass({
 		if(event.target.value === "save") {
 			browserHistory.push('/');
 		} else if (event.target.value === "create and view list") {
-      promise.then(function (store) {
-        browserHistory.push('/shopping-list/' + store._id);
-      })
-    } else {
+      		promise.then(function (store) {
+        	browserHistory.push('/shopping-list/' + store._id);
+      	})
+    	} else {
 			browserHistory.push('/');
-    }
+    	}
 	},
 
 	storeFormIsValid: function () {

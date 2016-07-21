@@ -4,12 +4,11 @@ var React = require('react');
 var API = require('../../helpers/api');
 var Link = require('react-router').Link;
 var SectionList = require('./SectionList');
-var TextInput = require('../common/TextInput');
 var ShoppingStore = require('../../stores/shoppingStore');
 var _ = require('lodash');
-
-var TextInput = require('../common/TextInput');
 var ShoppingActionCreator = require('../../actions/shoppingActionCreator');
+var toastr = require('toastr');
+
 var newSectionName = "";
 var storeId;
 
@@ -19,9 +18,8 @@ var ShoppingListPage = React.createClass({
       store: ShoppingStore.getStoreById(storeId)
     }
   },
-	
 
-	componentWillMount: function () {
+  componentWillMount: function () {
     storeId = this.props.params.id;
 
     if(storeId) {
@@ -40,114 +38,125 @@ var ShoppingListPage = React.createClass({
     this.setState({
       store: ShoppingStore.getStoreById(storeId)
     });
-
   },
-	
-	saveTextState: function (event) {
-	newSectionName = "";
+
+  saveTextState: function (event) {
+    newSectionName = "";
     newSectionName = event.target.value;
-    console.log(this.state.store);
-    console.log(event.target.value);
   },
 
-	saveSectionState: function (event) {
-		var newStore = Object.assign({}, this.state.store);
-  		var newSection = {
-  		id: "",
-  		storeSection: "",
-  		items: [{
-  			id: "",
-  			itemName: "apple"
-  		}]
-  	};
-  	var value = event.target.value;
-  	newSection.storeSection = newSectionName;
+  saveSectionState: function (event) {
+  	event.preventDefault();
+  	if(!this.sectionIsValid()) {
+      return;
+    }
 
-  	newStore.sections.push(newSection);
-  	this.setState({
-      store: newStore
-    });
-  	console.log(this.state.store);
-},
+    var newStore = Object.assign({}, this.state.store);
+    var newSection = {
+      id: "",
+      storeSection: "",
+      items: []
+    };
+
+    newSection.storeSection = newSectionName;
+
+    newStore.sections.push(newSection);
+    newSectionName = '';
+    document.getElementById("sectionId").value=null;
+    ShoppingActionCreator.updateStore(newStore);
+    toastr.success('Section Created!');
+  },
+
+  sectionIsValid: function () {
+    var sectionInputIsValid = true;
+    newSectionName = newSectionName.replace(/\s/g,'');
+    if (newSectionName.length <= 2) {
+      sectionInputIsValid = false;
+      console.log("Item Be Longer than 1 char")
+      toastr.error('Section Name to short!');
+    };
+
+    return sectionInputIsValid;
+  },
+
+  deleteSelectedItems: function () {
+    //console.log(this.state.store.sections);
+    var newStore = Object.assign({}, this.state.store);
+    var trashArray = [];
+    var keepArray = [];
+
+    for(var i = 0; i < newStore.sections.length; i++) {
+      for(var j = 0; j < newStore.sections[i].items.length; j++){
+        if(newStore.sections[i].items[j].selected === true) {
+          trashArray.push(newStore.sections[i].items[j]);
+        }else {
+          keepArray.push(newStore.sections[i].items[j]);
+        }
+      }
+    }
+    for(var i = 0; i < trashArray.length; i++) {
+      for(var j = 0; j < newStore.sections.length; j++) {
+        for (var k = 0; k < newStore.sections[j].items.length; k++) {
+          if(trashArray[i] === newStore.sections[j].items[k]) {
+            newStore.sections[j].items.splice(k, 1);
+          }
+        }
+      }
+    }
+
+    ShoppingActionCreator.updateStore(newStore);
+    toastr.success(trashArray.length + " Item(s) Deleted");
+  },
 
   render: function() {
-    {/*		return (
-          {//	<div>}
-          {//<h2>{this.state.store.storeName}</h2>}
-          {//				<Link className="btn btn-primary btn-sm" to="/manage-section">}
-          { //Add Section &nbsp;}
-          {//		<span className="glyphicon glyphicon-plus" aria-hidden="true"></span>}
-          {//</Link>} 
+    return (
 
-          <form>
-          <TextInput
-          name="Section Name"
-          placeholder="Section Name"
-          value={this.state.store.storeName.storeSection}
-          saveStoreState={this.state.saveStoreState}
-          onChange = {this.saveTextInputState}
-          />
+      <div className="container">
 
-          <button className="btn btn-primary btn-sm" 
-          onClick={this.props.saveStore} value="save section">
-          Save Section &nbsp;
-          <span className="glyphicon glyphicon-save" aria-hidden="true"></span>
+        <span className="inline"> 
+
+          <h1>{this.state.store.storeName}</h1>
+
+          <h3>
+            <input
+              id = "sectionId"
+              name={this.state.name}
+              style={{marginTop: 10, marginLeft: 10}}
+              placeholder="Add Section"
+              value={this.state.value}
+              onChange={this.saveTextState}
+            />
+
+          <button className="btn btn-primary btn-lg glyphicon glyphicon-plus" style={{marginLeft: 5}}
+            value="+"
+            onClick = {this.saveSectionState}>
           </button>
 
+        </h3>
 
-          <Link className="btn btn-primary btn-sm" to="/choose-store">
-          Move Checked &nbsp;
-          <span className="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
-          </Link>
+      </span>
 
-          <button className="btn btn-primary btn-sm">
-          Delete Checked &nbsp;
-          <span className="glyphicon glyphicon-trash" aria-hidden="true"></span>
-          </button>
-          </form>
-
-          <SectionList
-          store={this.state.store}
-          />
-          </div>
-          );
-        */}
-        return (
-
-          <div className="container">
-          <h2>{this.state.store.storeName}</h2>
-          <h2>{this.state.name}</h2>
-          <h2>{this.state.value}</h2>
-
-          <input
-          name={this.state.name}
-          placeholder="Add Section"
-          value={this.state.value}
-          onChange={this.saveTextState}
-          />
-
-          <button className="btn btn-primary btn-xs glyphicon glyphicon-plus" 
-          value="+"
-          onClick = {this.saveSectionState}>
-        </button>
-
-        <button className="btn btn-primary btn-sm pull-right" to="/choose-store">
+      <button className="btn btn-primary btn-lg pull-right" style={{marginTop: 30, marginLeft: 5}} to="/choose-store">
         Move Checked &nbsp;
         <span className="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
-        </button>
+      </button>
 
-        <button className="btn btn-primary btn-sm pull-right">
+      <button className="btn btn-primary btn-lg pull-right" style={{marginTop: 30}} 
+        onClick = {this.deleteSelectedItems}
+        >
         Delete Checked &nbsp;
         <span className="glyphicon glyphicon-trash" aria-hidden="true"></span>
-        </button>
+      </button>
 
-        <SectionList
+
+
+      <SectionList
         store={this.state.store}
-        />
+      />
 
-        </div>
-        );
-      }
-    });
+  </div>
+    );
+  }
+});
 
 module.exports = ShoppingListPage;
