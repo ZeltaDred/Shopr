@@ -29,7 +29,7 @@ var SectionList = React.createClass({
     var newItem = {
       id: index,
       itemName: newItemName,
-      description: "This is a description"
+      description: ""
     };
 
     newStore.sections[index].items.push(newItem);
@@ -100,6 +100,8 @@ var SectionList = React.createClass({
           <ItemList
             section={section}
             store={this.props.store}
+            items={this.props.store.sections[index].items}
+            sectionIndex={index}
           />
 
       </div>

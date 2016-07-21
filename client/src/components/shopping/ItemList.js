@@ -4,7 +4,7 @@ var React = require('react');
 var ShoppingActionCreator = require('../../actions/shoppingActionCreator');
 var Space = ' ';
 var Spacer = ' - ';
-
+var newDescriptionName;
 
 var ItemList = React.createClass({
   changeSelected: function (item, event) {
@@ -13,9 +13,35 @@ var ItemList = React.createClass({
     ShoppingActionCreator.updateStore(this.props.store);
   },
 
-  saveDescription: function () {
-    console.log("We need to work on getting the value to change");
-    console.log(this.props.value);
+  saveInputText: function (event) {
+    newDescriptionName = "";
+    newDescriptionName= event.target.value;
+    console.log(event.target.value);
+  },
+
+  saveDescription: function (index, event) {
+    event.preventDefault();
+    //console.log(this.props.items)
+    var newStore = Object.assign({}, this.props.store);
+
+    var newItem = {
+      id: this.props.items[index]._id,
+      itemName: this.props.items[index].itemName,
+      description: newDescriptionName
+    };
+
+    newStore.sections[this.props.sectionIndex].items[index] = newItem;
+    console.log(newStore);
+
+    newDescriptionName= "";
+
+    document.getElementById(index).value=null;
+
+    ShoppingActionCreator.updateStore(newStore);
+    console.log("updated");
+  },
+
+  descriptionIsValid: function () {
 
   },
 
@@ -24,22 +50,31 @@ var ItemList = React.createClass({
       var fontSize = "font-size";
       var fontWeight = "font-weight";
       var fontStyle = "font-style";
+      var listStyleType = "list-style-type";
       return (
-        <li key={index}>
+        <li key={index}
+          style={{listStyleType: "upper-roman", fontSize: "1.2em"}}>
             <h4>
 
               {item.itemName}
             {Spacer}{Space}{Space}{Space}{Space}
               <input
+                id = {index}
                 type="text"
-                onChange= {this.saveDescription}
+                onChange= {this.saveInputText}
+                onBlur={this.saveDescription.bind(this, index)}
                 className="input-fly"
                 value={this.props.value}
-                placeholder = "Add A description"
+                placeholder = "Add/Edit desc"
                 style={{border: "none", background: "transparent", 
-                color: "#000", width: "70%", fontSize: ".8em", 
+                color: "#000", width: "20%", fontSize: ".8em", 
                 fontWeight:"normal", fontStyle: "italic"}}>
               </input>
+              <span 
+              style={{fontStyle: "italic", fontSize: ".8em"}}
+              >
+              {Space}{Space}{item.description}
+              </span>
               <input
                 type="checkbox"
                 className="pull-right"
