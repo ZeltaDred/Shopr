@@ -14,7 +14,7 @@ var StoreForm = React.createClass({
 		return (
 			<form>
 				<TextInput
-					name=" "
+					name="storeName"
 					placeholder="Store Name"
 					value={this.props.store.storeName}
 					saveStoreState={this.props.saveStoreState}
