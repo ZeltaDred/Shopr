@@ -4,7 +4,7 @@ var React = require('react');
 var ShoppingActionCreator = require('../../actions/shoppingActionCreator');
 var Space = ' ';
 var Spacer = ' - ';
-var newDescriptionName;
+var newDescriptionName= "";
 
 var ItemList = React.createClass({
   changeSelected: function (item, event) {
@@ -21,7 +21,6 @@ var ItemList = React.createClass({
 
   saveDescription: function (index, event) {
     event.preventDefault();
-    //console.log(this.props.items)
     var newStore = Object.assign({}, this.props.store);
 
     var newItem = {
@@ -31,18 +30,10 @@ var ItemList = React.createClass({
     };
 
     newStore.sections[this.props.sectionIndex].items[index] = newItem;
-    console.log(newStore);
 
     newDescriptionName= "";
-
-    document.getElementById(index).value=null;
-
     ShoppingActionCreator.updateStore(newStore);
-    console.log("updated");
-  },
-
-  descriptionIsValid: function () {
-
+    event.target.value = "";
   },
 
   render: function() {
@@ -52,45 +43,65 @@ var ItemList = React.createClass({
       var fontStyle = "font-style";
       var listStyleType = "list-style-type";
       return (
-        <li key={index}
-          style={{listStyleType: "upper-roman", fontSize: "1.2em"}}>
-            <h4>
-
+        <tr key={index}>
+          <td>
               {item.itemName}
-            {Spacer}{Space}{Space}{Space}{Space}
+          </td>
+
+            <td style={{overflow: "hidden"}}>
+              <span 
+              style={{fontStyle: "italic", fontSize: ".8em"}}>
+              {Space}{Space}{item.description}
+              </span>
+            </td>
+
+          <td>
+
               <input
                 id = {index}
                 type="text"
                 onChange= {this.saveInputText}
                 onBlur={this.saveDescription.bind(this, index)}
-                className="input-fly"
                 value={this.props.value}
-                placeholder = "Add/Edit desc"
-                style={{border: "none", background: "transparent", 
-                color: "#000", width: "20%", fontSize: ".8em", 
-                fontWeight:"normal", fontStyle: "italic"}}>
+                placeholder = "Add/Edit description"
+                style={{color: "#000", 
+                fontSize: ".8em", fontWeight:"normal", 
+                fontStyle: "italic"}}>
               </input>
-              <span 
-              style={{fontStyle: "italic", fontSize: ".8em"}}
-              >
-              {Space}{Space}{item.description}
-              </span>
+
+            </td>
+
+            <td>
               <input
                 type="checkbox"
-                className="pull-right"
                 checked={item.selected}
                 onChange={this.changeSelected.bind(this, item)}
                 name="items"
                 value={item._id}
               />
-            </h4>
-        </li>
+            </td>
+          </tr>
       );
 
     };
 
-    return (
-        <ul>{this.props.section.items.map(listItems, this)}</ul>
+    return ( 
+      <table //className="container" 
+        className="table" style={{"tableLayout": "fixed", 
+        marginBottom: 0}}>
+        <thead style={{"font-size": "1.5em"}}>
+          <tr>
+            <th>Item</th>
+            <th>Description</th>
+            <th>Edit</th>
+            <th>Checkbox</th>
+          </tr>
+        </thead>
+        <tbody>
+        {this.props.section.items.map(listItems, this)}
+        </tbody>
+      </table>
+
     );
 
   }
