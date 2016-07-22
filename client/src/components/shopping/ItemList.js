@@ -36,10 +36,6 @@ var ItemList = React.createClass({
     event.target.value = "";
   },
 
-  descriptionIsValid: function () {
-
-  },
-
   render: function() {
     var listItems = function(item, index) {
       var fontSize = "font-size";
@@ -47,9 +43,7 @@ var ItemList = React.createClass({
       var fontStyle = "font-style";
       var listStyleType = "list-style-type";
       return (
-        <tr key={index}
-          style={{listStyleType: "upper-roman", fontSize: "1.2em"}}>
-
+        <tr key={index}>
           <td>
               {item.itemName}
           </td>
@@ -68,7 +62,6 @@ var ItemList = React.createClass({
                 type="text"
                 onChange= {this.saveInputText}
                 onBlur={this.saveDescription.bind(this, index)}
-                className="input-fly"
                 value={this.props.value}
                 placeholder = "Add/Edit description"
                 style={{color: "#000", 
@@ -93,7 +86,9 @@ var ItemList = React.createClass({
     };
 
     return ( 
-      <table className="container" className="table" style={{"table-layout": "fixed"}}>
+      <table //className="container" 
+        className="table" style={{"tableLayout": "fixed", 
+        marginBottom: 0}}>
         <thead style={{"font-size": "1.5em"}}>
           <tr>
             <th>Item</th>
