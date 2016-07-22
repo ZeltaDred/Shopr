@@ -67,9 +67,17 @@ var ShoppingListPage = React.createClass({
     toastr.success('Section Created!');
   },
 
+    saveSectionWithBlur: function () {
+    event.preventDefault();
+    if (newSectionName.length < 1){
+      return
+    }
+    this.saveSectionState(event);
+  },
+
   sectionIsValid: function () {
     var sectionInputIsValid = true;
-    newSectionName = newSectionName.replace(/\s/g,'');
+    newSectionName = newSectionName.trim();
     if (newSectionName.length <= 2) {
       sectionInputIsValid = false;
       console.log("Item Be Longer than 1 char")
@@ -80,7 +88,6 @@ var ShoppingListPage = React.createClass({
   },
 
   deleteSelectedItems: function () {
-    //console.log(this.state.store.sections);
     var newStore = Object.assign({}, this.state.store);
     var trashArray = [];
     var keepArray = [];
@@ -111,37 +118,38 @@ var ShoppingListPage = React.createClass({
   render: function() {
     return (
 
-      <div className="container">
-
+        <div>
         <span className="inline"> 
 
           <h1>{this.state.store.storeName}</h1>
-
+        <form onSubmit={this.saveSectionState}>
           <h3>
             <input
               id = "sectionId"
               name={this.state.name}
-              style={{marginTop: 10, marginLeft: 10}}
+              style={{marginTop: 10, marginLeft: 10, width: 10+'em'}}
               placeholder="Add Section"
               value={this.state.value}
               onChange={this.saveTextState}
+              onBlur= {this.saveSectionWithBlur}
             />
 
-          <button className="btn btn-primary btn-lg glyphicon glyphicon-plus" style={{marginLeft: 5}}
-            value="+"
-            onClick = {this.saveSectionState}>
-          </button>
+          <div className="btn btn-primary btn-xsm glyphicon glyphicon-plus" 
+                  style={{margin: "-14% 0% -12% 0px"}}
+                  value="+">
+          </div>
 
         </h3>
-
+        </form>
       </span>
 
-      <button className="btn btn-primary btn-lg pull-right" style={{marginTop: 30, marginLeft: 5}} to="/choose-store">
+      {/*<button className="btn btn-primary btn-xsm pull-right" style={{marginTop: 30, marginLeft: 5, width: 10+'em'}} to="/choose-store">
         Move Checked &nbsp;
         <span className="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
-      </button>
+      </button>*/}
 
-      <button className="btn btn-primary btn-lg pull-right" style={{marginTop: 30}} 
+      <button className="btn btn-primary btn-xsm pull-right" 
+        style={{marginTop: 30, marginRight: 0}} 
         onClick = {this.deleteSelectedItems}
         >
         Delete Checked &nbsp;
