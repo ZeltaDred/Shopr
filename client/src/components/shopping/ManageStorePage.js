@@ -70,7 +70,7 @@ var ManageStorePage = React.createClass({
 	render: function() {
 		return (
 			<div>
-				<h2>Manage Store</h2>
+				<h2>Add New Store</h2>
 				<StoreForm
 					store={this.state.store}
 					saveStoreState={this.saveStoreState}

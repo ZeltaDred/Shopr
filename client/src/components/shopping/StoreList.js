@@ -19,7 +19,7 @@ var StoreList = React.createClass({
 
   render: function() {
 
-    var listStores = function(store) {
+    var listStores = function(store, index) {
       var sumItems = 0;
       for(var i = 0; i < store.sections.length; i++) {
         sumItems += store.sections[i].items.length;
@@ -28,18 +28,19 @@ var StoreList = React.createClass({
       return (
         <tr key = {store._id}>
           <td>
-            <Link style={LinkStyle} to={"/shopping-list/" + store._id}>
+            <Link style={LinkStyle} to={"/shopping-list/" + store._id} 
+                  style={{"fontSize": 30}}>
               {store.storeName}
             </Link>
           </td>
-          <td>{sumItems}</td>
+          <td style={{"fontSize": 25}}>{sumItems}</td>
           <td>
-            <Link className="btn btn-primary btn-sm" to={"/shopping-list/" + store._id}>
+            <Link className="btn btn-primary btn-xsm" to={"/shopping-list/" + store._id}>
               <span className="glyphicon glyphicon-list-alt"></span>
             </Link>
           </td>
           <td>
-            <a href="#" className="btn btn-primary btn-sm" onClick={this
+            <a href="#" className="btn btn-primary btn-xsm" onClick={this
               .deleteStore
               .bind(this, store)}>
               <span className="glyphicon glyphicon-trash"></span>
@@ -51,9 +52,9 @@ var StoreList = React.createClass({
 
     return(
       <table className="table">
-        <thead>
+        <thead style={{"fontSize": "1.5em"}}>
           <tr>
-            <th>Store</th>
+            <th>Stores</th>
             <th>Items</th>
             <th>List</th>
             <th>Delete Store</th>
